@@ -1,5 +1,8 @@
 package login_Registro.component;
 
+import DAO.UsuarioDAO;
+import DTO.UsuarioDTO;
+import java.sql.ResultSet;
 import login_Registro.swing.Button;
 import login_Registro.swing.MyPasswordField;
 import login_Registro.swing.MyTextField;
@@ -8,6 +11,7 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import javaswingdev.main.Main;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -30,7 +34,7 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
         register.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]10[]25[]push"));
         JLabel label = new JLabel("Criar conta");
         label.setFont(new Font("sansserif", 1, 30));
-        label.setForeground(new Color(78,84,200));
+        label.setForeground(new Color(78, 84, 200));
         register.add(label);
         MyTextField txtUser = new MyTextField();
         txtUser.setPrefixIcon(new ImageIcon(getClass().getResource("/login_Registro/icon/user.png")));
@@ -49,17 +53,44 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
         txtPass.setHint("Senha");
         register.add(txtPass, "w 60%");
         Button cmd = new Button();
-        cmd.setBackground(new Color(78,84,200));
+        cmd.setBackground(new Color(78, 84, 200));
         cmd.setForeground(new Color(250, 250, 250));
         cmd.setText("CADASTRAR");
         register.add(cmd, "w 40%, h 40");
+        cmd.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    UsuarioDTO estudante = new UsuarioDTO();
+
+                    estudante.setEmail(txtEmail.getText());
+                    estudante.setSenha(txtPass.getText());
+                    estudante.setNome(txtUser.getText());
+                    estudante.setMatricula(txtNumeroMatricula.getText());
+
+                    UsuarioDAO estudanteDAO = new UsuarioDAO();
+                    boolean resultUsuarioDAO = estudanteDAO.cadastrarUsuario(estudante);
+
+                    if (resultUsuarioDAO) {
+                        Main main = new Main();
+                        main.show();
+                        ((JFrame) SwingUtilities.getWindowAncestor(register)).dispose();
+                    } else {
+                        // tratar error
+                        System.err.println("Usuario inválido!");
+                    }
+
+                } catch (Exception exception) {
+                    System.err.println("Error: " + exception);
+                }
+            }
+        });
     }
 
     private void initLogin() {
         login.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]10[]25[]push"));
         JLabel label = new JLabel("Login");
         label.setFont(new Font("sansserif", 1, 30));
-        label.setForeground(new Color(78,84,200));
+        label.setForeground(new Color(78, 84, 200));
         login.add(label);
         MyTextField txtEmail = new MyTextField();
         txtEmail.setPrefixIcon(new ImageIcon(getClass().getResource("/login_Registro/icon/mail.png")));
@@ -76,16 +107,32 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
         cmdForget.setCursor(new Cursor(Cursor.HAND_CURSOR));
         login.add(cmdForget);
         Button cmd = new Button();
-        cmd.setBackground(new Color(78,84,200));
+        cmd.setBackground(new Color(78, 84, 200));
         cmd.setForeground(new Color(250, 250, 250));
         cmd.setText("LOGIN");
         login.add(cmd, "w 40%, h 40");
         cmd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Main main = new Main();
-                main.show();
-                // Fechar a tela atual
-                ((JFrame) SwingUtilities.getWindowAncestor(login)).dispose();
+                try {
+                    Main main = new Main();
+                    // Checar se o login e senha existe
+                    UsuarioDTO estudante = new UsuarioDTO();
+                    estudante.setEmail(txtEmail.getText());
+                    estudante.setSenha(txtPass.getText());
+
+                    UsuarioDAO estudanteDAO = new UsuarioDAO();
+                    ResultSet resultUsuarioDAO = estudanteDAO.antenticacaoUsuario(estudante);
+
+                    if (resultUsuarioDAO.next()) {
+                        main.show();
+                        ((JFrame) SwingUtilities.getWindowAncestor(login)).dispose();
+                    } else {
+                        // tratar error
+                        System.err.println("Usuario inválido!");
+                    }
+                } catch (SQLException exception) {
+                    System.err.println("Error: " + exception);
+                }
             }
         });
 
