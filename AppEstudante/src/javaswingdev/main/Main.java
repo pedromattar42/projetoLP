@@ -2,6 +2,7 @@ package javaswingdev.main;
 
 import java.awt.Component;
 import javaswingdev.form.Form_AdicionarDisciplina;
+import javaswingdev.form.Form_Calendario;
 import javaswingdev.form.Form_Dashboard;
 import javaswingdev.form.Form_Empty;
 import javaswingdev.form.Form_Enem_Materiais;
@@ -42,11 +43,13 @@ public class Main extends javax.swing.JFrame {
                     showForm(dashboardForm);
                 } else if (index == 1 && indexSubMenu == 0) {
                     showForm(adicionarDisciplinaForm);
+                } else if (index == 3 && indexSubMenu == 0) {
+                    showForm(new Form_Empty("2"));
                 } else if (index == 5 && indexSubMenu == 0) {
                     showForm(rendimentoForm);
                 } else if (index == 6 && indexSubMenu == 1) {
                     showForm(enemFormVideos);
-                }else if (index == 6 && indexSubMenu == 2) {
+                } else if (index == 6 && indexSubMenu == 2) {
                     showForm(enemFormMateriais);
                 } else if (index == 7 && indexSubMenu == 0) {
                     showForm(pomodoroForm);
