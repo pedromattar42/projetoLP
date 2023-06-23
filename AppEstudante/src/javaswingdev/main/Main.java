@@ -20,6 +20,7 @@ public class Main extends javax.swing.JFrame {
     private Form_AdicionarDisciplina adicionarDisciplinaForm;
     private Form_Enem_Videos enemFormVideos;
     private Form_Enem_Materiais enemFormMateriais;
+    private Form_Calendario calendarioForm;
 
     public Main() {
         initComponents();
@@ -34,6 +35,7 @@ public class Main extends javax.swing.JFrame {
         adicionarDisciplinaForm = new Form_AdicionarDisciplina();
         enemFormVideos = new Form_Enem_Videos();
         enemFormMateriais = new Form_Enem_Materiais();
+        calendarioForm = new Form_Calendario();
 
         titleBar.initJFram(this);
         menu.addEvent(new EventMenuSelected() {
@@ -44,7 +46,7 @@ public class Main extends javax.swing.JFrame {
                 } else if (index == 1 && indexSubMenu == 0) {
                     showForm(adicionarDisciplinaForm);
                 } else if (index == 3 && indexSubMenu == 0) {
-                    showForm(new Form_Empty("2"));
+                    showForm(calendarioForm);
                 } else if (index == 5 && indexSubMenu == 0) {
                     showForm(rendimentoForm);
                 } else if (index == 6 && indexSubMenu == 1) {
