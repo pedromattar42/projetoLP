@@ -68,10 +68,11 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                     estudante.setMatricula(txtNumeroMatricula.getText());
 
                     UsuarioDAO estudanteDAO = new UsuarioDAO();
-                    boolean resultUsuarioDAO = estudanteDAO.cadastrarUsuario(estudante);
+                    int resultUsuarioDAO = estudanteDAO.cadastrarUsuario(estudante);
 
-                    if (resultUsuarioDAO) {
+                    if (resultUsuarioDAO != -1) {
                         Main main = new Main();
+                        main.setUser(resultUsuarioDAO);
                         main.show();
                         ((JFrame) SwingUtilities.getWindowAncestor(register)).dispose();
                     } else {
@@ -114,23 +115,24 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
         cmd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Main main = new Main();
                     // Checar se o login e senha existe
                     UsuarioDTO estudante = new UsuarioDTO();
                     estudante.setEmail(txtEmail.getText());
                     estudante.setSenha(txtPass.getText());
 
                     UsuarioDAO estudanteDAO = new UsuarioDAO();
-                    ResultSet resultUsuarioDAO = estudanteDAO.antenticacaoUsuario(estudante);
+                    int resultUsuarioDAO = estudanteDAO.antenticacaoUsuario(estudante);
 
-                    if (resultUsuarioDAO.next()) {
+                    if (resultUsuarioDAO != -1) {
+                        Main main = new Main();
+                        main.setUser(resultUsuarioDAO);
                         main.show();
                         ((JFrame) SwingUtilities.getWindowAncestor(login)).dispose();
                     } else {
                         // tratar error
                         System.err.println("Usuario inválido!");
                     }
-                } catch (SQLException exception) {
+                } catch (Exception exception) {
                     System.err.println("Error: " + exception);
                 }
             }

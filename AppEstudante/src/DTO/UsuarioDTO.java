@@ -10,7 +10,7 @@ package DTO;
  */
 public class UsuarioDTO {
     private String nome, email, matricula, senha;
-
+    
     public String getNome() {
         return nome;
     }

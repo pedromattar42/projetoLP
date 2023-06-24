@@ -10,15 +10,16 @@ package DAO;
  * @author gussa
  */
 
+import DTO.MateriaDTO;
 import DTO.UsuarioDTO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
-public class UsuarioDAO {
+public class MateriaDAO {
     Connection conn;
     
-    public int antenticacaoUsuario(UsuarioDTO estudante){
+    /* public ResultSet pegarMaterias(UsuarioDTO estudante){
         conn = new ConexaoDAO().contectarDB();
         
         try {
@@ -28,41 +29,34 @@ public class UsuarioDAO {
             pstm.setString(2, estudante.getSenha());
 
             ResultSet result = pstm.executeQuery();
-            result.next();
-            return result.getInt("id_estudante");
+            return result;
         } catch (Exception e) {
             // tratar erro
             System.err.println("Error (UusarioDAO): " + e);
-            return -1;
+            return null;
         }
-    }
+    } */
     
-    public int cadastrarUsuario(UsuarioDTO estudante){
+    public boolean cadastrarMateria(MateriaDTO materia){
         conn = new ConexaoDAO().contectarDB();
         
         try {
-            String sql = "insert into estudantes (nome, email, matricula, senha) values(?, ?, ?, ?);";
+            String sql = "insert into materias (nome, professor, carga_horaria, qnt_provas, id_estudante) values(?, ?, ?, ?, ?);";
             PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setString(1, estudante.getNome());
-            pstm.setString(2, estudante.getEmail());
-            pstm.setString(3, estudante.getMatricula());
-            pstm.setString(4, estudante.getSenha());
+            pstm.setString(1, materia.getNome());
+            pstm.setString(2, materia.getProfessor());
+            pstm.setString(3, Integer.toString(materia.getCarga_horaria()));
+            pstm.setString(4, Integer.toString(materia.getQnt_provas()));
+            pstm.setString(5, Integer.toString(materia.getId_estudante()));
             
             pstm.execute();
             pstm.close();
             
-            sql = "select * from estudantes where email = ? and senha = ?";
-            pstm = conn.prepareStatement(sql);
-            pstm.setString(1, estudante.getEmail());
-            pstm.setString(2, estudante.getSenha());
-            
-            ResultSet result = pstm.executeQuery();
-            result.next();
-            return result.getInt("id_estudante");
+            return true;
         } catch (Exception e) {
             // tratar erro
-            System.err.println("Error (UusarioDAO): " + e);
-            return -1;
+            System.err.println("Error (MaterialDAO): " + e);
+            return false;
         }
     }
 }

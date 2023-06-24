@@ -4,6 +4,10 @@
  */
 package javaswingdev.form;
 
+import DAO.MateriaDAO;
+import DTO.MateriaDTO;
+import javaswingdev.main.Main;
+
 /**
  *
  * @author pedro
@@ -80,6 +84,11 @@ public class Form_AdicionarDisciplina extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("SALVAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -99,7 +108,7 @@ public class Form_AdicionarDisciplina extends javax.swing.JPanel {
                         .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,6 +167,32 @@ public class Form_AdicionarDisciplina extends javax.swing.JPanel {
     private void textField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textField4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:        
+        try {
+            MateriaDTO materia = new MateriaDTO();
+
+            materia.setNome(textField1.getText());
+            materia.setProfessor(textField2.getText());
+            materia.setCarga_horaria(Integer.parseInt(textField3.getText()));
+            materia.setQnt_provas(Integer.parseInt(textField4.getText()));
+            materia.setId_estudante(Main.getUser());
+
+            MateriaDAO materiaDAO = new MateriaDAO();
+            boolean resultMateriaDAO = materiaDAO.cadastrarMateria(materia);
+
+            // tratar
+            if (resultMateriaDAO) {
+                System.out.println("Materia criada com sucesso!");
+            } else {
+                System.err.println("Materia falhou para criar!");
+            }
+        } catch (Exception exception) {
+            System.err.println("Error: " + exception);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

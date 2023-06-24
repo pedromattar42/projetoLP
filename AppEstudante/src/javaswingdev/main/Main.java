@@ -1,5 +1,6 @@
 package javaswingdev.main;
 
+import DTO.UsuarioDTO;
 import java.awt.Component;
 import javaswingdev.form.Form_AdicionarDisciplina;
 import javaswingdev.form.Form_Calendario;
@@ -14,6 +15,7 @@ import javaswingdev.menu.EventMenuSelected;
 public class Main extends javax.swing.JFrame {
 
     private static Main main;
+    static int id_estudante;
     private Form_Pomodoro pomodoroForm;
     private Form_Dashboard dashboardForm;
     private Rendimento rendimentoForm;
@@ -27,6 +29,14 @@ public class Main extends javax.swing.JFrame {
         init();
     }
 
+    public void setUser(int id_estudante) {
+        this.id_estudante = id_estudante;
+    }
+    
+    public static int getUser() {
+        return id_estudante;
+    }
+    
     private void init() {
         main = this;
         pomodoroForm = new Form_Pomodoro();
