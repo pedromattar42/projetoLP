@@ -31,7 +31,6 @@ public class UsuarioDAO {
             result.next();
             return result.getInt("id_estudante");
         } catch (Exception e) {
-            // tratar erro
             System.err.println("Error (UusarioDAO): " + e);
             return -1;
         }
@@ -60,7 +59,6 @@ public class UsuarioDAO {
             result.next();
             return result.getInt("id_estudante");
         } catch (Exception e) {
-            // tratar erro
             System.err.println("Error (UusarioDAO): " + e);
             return -1;
         }

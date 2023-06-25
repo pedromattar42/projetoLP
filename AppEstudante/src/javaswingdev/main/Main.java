@@ -1,6 +1,5 @@
 package javaswingdev.main;
 
-import DTO.UsuarioDTO;
 import java.awt.Component;
 import javaswingdev.form.Form_AdicionarDisciplina;
 import javaswingdev.form.Form_Calendario;
@@ -29,8 +28,8 @@ public class Main extends javax.swing.JFrame {
         init();
     }
 
-    public void setUser(int id_estudante) {
-        this.id_estudante = id_estudante;
+    public static void setUser(int id_estudante) {
+        Main.id_estudante = id_estudante;
     }
     
     public static int getUser() {

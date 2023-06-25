@@ -6,7 +6,9 @@ package javaswingdev.form;
 
 import DAO.MateriaDAO;
 import DTO.MateriaDTO;
+import java.util.ArrayList;
 import javaswingdev.main.Main;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +21,7 @@ public class Form_AdicionarDisciplina extends javax.swing.JPanel {
      */
     public Form_AdicionarDisciplina() {
         initComponents();
+        listarMaterias();
     }
 
     /**
@@ -185,6 +188,7 @@ public class Form_AdicionarDisciplina extends javax.swing.JPanel {
             // tratar
             if (resultMateriaDAO) {
                 System.out.println("Materia criada com sucesso!");
+                listarMaterias();
             } else {
                 System.err.println("Materia falhou para criar!");
             }
@@ -207,4 +211,26 @@ public class Form_AdicionarDisciplina extends javax.swing.JPanel {
     private textfield.TextField textField3;
     private textfield.TextField textField4;
     // End of variables declaration//GEN-END:variables
+    
+    private void listarMaterias() {
+        try {
+            MateriaDAO materia = new MateriaDAO();
+            DefaultTableModel model = (DefaultTableModel) table1.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<MateriaDTO> lista = materia.pegarMaterias(Main.getUser());
+                    
+            for (int num = 0; num < lista.size(); num++) {
+                model.addRow(new Object[] {
+                    lista.get(num).getNome(),
+                    lista.get(num).getProfessor(),
+                    lista.get(num).getCarga_horaria(),
+                    lista.get(num).getQnt_provas(),
+                });
+            }
+        } catch (Exception e) {
+            // tratar erro
+            System.out.println("Error (Listar materias)");
+        }
+    }
 }

@@ -71,8 +71,8 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                     int resultUsuarioDAO = estudanteDAO.cadastrarUsuario(estudante);
 
                     if (resultUsuarioDAO != -1) {
+                        Main.setUser(resultUsuarioDAO);
                         Main main = new Main();
-                        main.setUser(resultUsuarioDAO);
                         main.show();
                         ((JFrame) SwingUtilities.getWindowAncestor(register)).dispose();
                     } else {
@@ -124,8 +124,8 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                     int resultUsuarioDAO = estudanteDAO.antenticacaoUsuario(estudante);
 
                     if (resultUsuarioDAO != -1) {
+                        Main.setUser(resultUsuarioDAO);
                         Main main = new Main();
-                        main.setUser(resultUsuarioDAO);
                         main.show();
                         ((JFrame) SwingUtilities.getWindowAncestor(login)).dispose();
                     } else {

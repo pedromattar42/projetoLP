@@ -11,31 +11,41 @@ package DAO;
  */
 
 import DTO.MateriaDTO;
-import DTO.UsuarioDTO;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.sql.PreparedStatement;
 
 public class MateriaDAO {
     Connection conn;
     
-    /* public ResultSet pegarMaterias(UsuarioDTO estudante){
+    public ArrayList<MateriaDTO> pegarMaterias(int id_estudante){
         conn = new ConexaoDAO().contectarDB();
+        ArrayList<MateriaDTO> lista = new ArrayList<>();
         
         try {
-            String sql = "select * from estudantes where email = ? and senha = ?";
+            String sql = "select * from materias where id_estudante = ?";
             PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setString(1, estudante.getEmail());
-            pstm.setString(2, estudante.getSenha());
+            pstm.setInt(1, id_estudante);
 
             ResultSet result = pstm.executeQuery();
-            return result;
+
+            while (result.next()) {
+                MateriaDTO materia = new MateriaDTO();
+                materia.setNome(result.getString("nome"));
+                materia.setProfessor(result.getString("professor"));
+                materia.setCarga_horaria(result.getInt("carga_horaria"));
+                materia.setQnt_provas(result.getInt("qnt_provas"));
+                materia.setId_estudante(result.getInt("id_estudante"));
+
+                lista.add(materia);
+            }
         } catch (Exception e) {
-            // tratar erro
-            System.err.println("Error (UusarioDAO): " + e);
-            return null;
+            System.err.println("Error (pegarMaterias): " + e);
         }
-    } */
+
+        return lista;
+    }
     
     public boolean cadastrarMateria(MateriaDTO materia){
         conn = new ConexaoDAO().contectarDB();
@@ -54,7 +64,6 @@ public class MateriaDAO {
             
             return true;
         } catch (Exception e) {
-            // tratar erro
             System.err.println("Error (MaterialDAO): " + e);
             return false;
         }
