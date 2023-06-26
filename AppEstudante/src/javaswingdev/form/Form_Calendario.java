@@ -4,7 +4,10 @@
  */
 package javaswingdev.form;
 
+import DAO.CalendarioDAO;
+import DTO.CalendarioDTO;
 import java.util.ArrayList;
+import javaswingdev.main.Main;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -145,16 +148,32 @@ public class Form_Calendario extends javax.swing.JPanel {
         int numCols = model.getColumnCount();
 
         ArrayList<Object> valoresNaoNulos = new ArrayList<>();
-
+        CalendarioDAO rotinaDAO = new CalendarioDAO();
+        rotinaDAO.excluirRotina();
+        
         for (int i = 0; i < numRows; i++) {
+            CalendarioDTO rotina = new CalendarioDTO();
+            rotina.setHorario(Integer.toString(i + 8));
+            rotina.setId_estudante(Main.getUser());
             for (int j = 1; j < numCols; j++) {
                 Object value = model.getValueAt(i, j);
+                
                 if (value != null) {
                     valoresNaoNulos.add(value);
-                    System.out.println(value);
+                    rotina.setInfo(value.toString());
+                    rotina.setDia_semana(model.getColumnName(j));
+                    
+                    boolean result = rotinaDAO.cadastrarRotina(rotina);
+                    
+                    if (result) {
+                        System.out.println("Sucesso!");
+                    } else {
+                        System.out.println("Error!");
+                    }
                 }
-            }
-}    }//GEN-LAST:event_jButton1MouseClicked
+            } 
+        }        
+    }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
