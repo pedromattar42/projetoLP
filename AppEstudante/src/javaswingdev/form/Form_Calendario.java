@@ -21,6 +21,7 @@ public class Form_Calendario extends javax.swing.JPanel {
      */
     public Form_Calendario() {
         initComponents();
+        listarRotina();
     }
 
     /**
@@ -143,36 +144,9 @@ public class Form_Calendario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        DefaultTableModel model = (DefaultTableModel) calendarioTabela.getModel();
-        int numRows = model.getRowCount();
-        int numCols = model.getColumnCount();
-
-        ArrayList<Object> valoresNaoNulos = new ArrayList<>();
         CalendarioDAO rotinaDAO = new CalendarioDAO();
         rotinaDAO.excluirRotina();
-        
-        for (int i = 0; i < numRows; i++) {
-            CalendarioDTO rotina = new CalendarioDTO();
-            rotina.setHorario(Integer.toString(i + 8));
-            rotina.setId_estudante(Main.getUser());
-            for (int j = 1; j < numCols; j++) {
-                Object value = model.getValueAt(i, j);
-                
-                if (value != null) {
-                    valoresNaoNulos.add(value);
-                    rotina.setInfo(value.toString());
-                    rotina.setDia_semana(model.getColumnName(j));
-                    
-                    boolean result = rotinaDAO.cadastrarRotina(rotina);
-                    
-                    if (result) {
-                        System.out.println("Sucesso!");
-                    } else {
-                        System.out.println("Error!");
-                    }
-                }
-            } 
-        }        
+        addRotina();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -187,4 +161,64 @@ public class Form_Calendario extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javaswingdev.swing.RoundPanel roundPanel1;
     // End of variables declaration//GEN-END:variables
+
+    private void addRotina() {
+        try {
+            DefaultTableModel model = (DefaultTableModel) calendarioTabela.getModel();
+            int numRows = model.getRowCount();
+            int numCols = model.getColumnCount();
+
+            CalendarioDAO rotinaDAO = new CalendarioDAO();
+            ArrayList<Object> valoresNaoNulos = new ArrayList<>();
+
+            for (int i = 0; i < numRows; i++) {
+                CalendarioDTO rotina = new CalendarioDTO();
+                rotina.setHorario(Integer.toString(i + 8));
+                rotina.setId_estudante(Main.getUser());
+                for (int j = 1; j < numCols; j++) {
+                    Object value = model.getValueAt(i, j);
+                    if (value != null) {
+                        if (!value.equals("") && !value.equals(" ") && !value.equals(' ')) {
+                            valoresNaoNulos.add(value);
+                            rotina.setInfo(value.toString());
+                            rotina.setDia_semana(model.getColumnName(j));
+
+                            boolean result = rotinaDAO.cadastrarRotina(rotina);
+
+                            if (result) {
+                                System.out.println("Sucesso!");
+                            } else {
+                                System.out.println("Error!");
+                            }
+                        }
+                    }
+                } 
+            }    
+        } catch (Exception e) {
+            // tratar erro
+            System.out.println("Error (Adicionar rotina)");
+        }  
+    }
+    
+    private void listarRotina() {
+        try {
+            CalendarioDAO rotinaDAO = new CalendarioDAO();
+            DefaultTableModel model = (DefaultTableModel) calendarioTabela.getModel();
+            ArrayList<CalendarioDTO> lista = rotinaDAO.pegarRotina(Main.getUser());
+            int numRows = model.getRowCount();
+            int numCols = model.getColumnCount();
+            
+            for (int num = 0; num < lista.size(); num++) {
+                for (int i = 0; i < numRows; i++) {
+                    for (int j = 1; j < numCols; j++) {
+                        if (lista.get(num).getDia_semana().equals(model.getColumnName(j)) && lista.get(num).getHorario().equals(Integer.toString(i+8))) {  
+                            model.setValueAt(lista.get(num).getInfo(), i, j);
+                        }
+                    }    
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error (Listar rotina)");
+        }
+    }
 }

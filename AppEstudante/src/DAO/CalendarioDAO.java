@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import javaswingdev.main.Main;
+import java.util.ArrayList;
 
 public class CalendarioDAO {
     Connection conn;
@@ -56,5 +57,32 @@ public class CalendarioDAO {
             System.err.println("Error (CalendarioDAO): " + e);
             return false;
         }
+    }
+    
+    public ArrayList<CalendarioDTO> pegarRotina(int id_estudante) {
+        conn = new ConexaoDAO().contectarDB();
+        ArrayList<CalendarioDTO> lista = new ArrayList<>();
+        
+        try {
+            String sql = "select * from calendario_estudante where id_estudante = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, id_estudante);
+
+            ResultSet result = pstm.executeQuery();
+
+            while (result.next()) {
+                CalendarioDTO rotina = new CalendarioDTO();
+                rotina.setDia_semana(result.getString("dia_semana"));
+                rotina.setHorario(result.getString("horario"));
+                rotina.setInfo(result.getString("info"));
+                rotina.setId_estudante(result.getInt("id_estudante"));
+
+                lista.add(rotina);
+            }
+        } catch (Exception e) {
+            System.err.println("Error (pegarRotina): " + e);
+        }
+        
+        return lista;
     }
 }
