@@ -14,7 +14,7 @@ import DTO.CalendarioDTO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
-import javaswingdev.main.Main;
+import mainDialog.main.Main;
 import java.util.ArrayList;
 
 public class CalendarioDAO {

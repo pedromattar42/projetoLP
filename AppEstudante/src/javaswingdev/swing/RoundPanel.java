@@ -7,7 +7,7 @@ import java.awt.RenderingHints;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
-import javaswingdev.system.SystemColor;
+import mainDialog.system.SystemColor;
 import javax.swing.JPanel;
 
 public class RoundPanel extends JPanel {
