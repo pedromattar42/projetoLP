@@ -4,8 +4,6 @@
  */
 package mainDialog.form;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JCheckBox;
 import javax.swing.JProgressBar;
 
@@ -16,7 +14,7 @@ import javax.swing.JProgressBar;
 public class Form_Rendimento extends javax.swing.JPanel {
 
     private int totalYield = 0; //total do rendimento do aluno, em porcentagem
-    private JProgressBar pbar;
+    private final JProgressBar pbar;
 
     public Form_Rendimento() {
         initComponents();
