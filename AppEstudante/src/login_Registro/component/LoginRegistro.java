@@ -26,37 +26,37 @@ public class LoginRegistro extends javax.swing.JLayeredPane {
         initComponents();
         initRegister();
         initLogin();
-        login.setVisible(false);
-        register.setVisible(true);
+        painelDeRegistro.setVisible(true);
+        painelDeLogin.setVisible(false);
     }
 
     private void initRegister() {
-        register.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]10[]25[]push"));
+        painelDeRegistro.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]10[]25[]push"));
         JLabel label = new JLabel("Criar conta");
         label.setFont(new Font("sansserif", 1, 30));
         label.setForeground(new Color(78, 84, 200));
-        register.add(label);
+        painelDeRegistro.add(label);
         MyTextField txtUser = new MyTextField();
         txtUser.setPrefixIcon(new ImageIcon(getClass().getResource("/login_Registro/icon/user.png")));
         txtUser.setHint("Nome");
-        register.add(txtUser, "w 60%");
+        painelDeRegistro.add(txtUser, "w 60%");
         MyTextField txtEmail = new MyTextField();
         txtEmail.setPrefixIcon(new ImageIcon(getClass().getResource("/login_Registro/icon/mail.png")));
         txtEmail.setHint("Email");
-        register.add(txtEmail, "w 60%");
+        painelDeRegistro.add(txtEmail, "w 60%");
         MyTextField txtNumeroMatricula = new MyTextField();
         txtNumeroMatricula.setPrefixIcon(new ImageIcon(getClass().getResource("/login_Registro/icon/mail.png")));
         txtNumeroMatricula.setHint("Número de matrícula");
-        register.add(txtNumeroMatricula, "w 60%");
+        painelDeRegistro.add(txtNumeroMatricula, "w 60%");
         MyPasswordField txtPass = new MyPasswordField();
         txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/login_Registro/icon/pass.png")));
         txtPass.setHint("Senha");
-        register.add(txtPass, "w 60%");
+        painelDeRegistro.add(txtPass, "w 60%");
         Button cmd = new Button();
         cmd.setBackground(new Color(78, 84, 200));
         cmd.setForeground(new Color(250, 250, 250));
         cmd.setText("CADASTRAR");
-        register.add(cmd, "w 40%, h 40");
+        painelDeRegistro.add(cmd, "w 40%, h 40");
         cmd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -74,7 +74,7 @@ public class LoginRegistro extends javax.swing.JLayeredPane {
                         Main.setUser(resultUsuarioDAO);
                         Main main = new Main();
                         main.show();
-                        ((JFrame) SwingUtilities.getWindowAncestor(register)).dispose();
+                        ((JFrame) SwingUtilities.getWindowAncestor(painelDeRegistro)).dispose();
                     } else {
                         // tratar error
                         System.err.println("Usuario inválido!");
@@ -88,30 +88,30 @@ public class LoginRegistro extends javax.swing.JLayeredPane {
     }
 
     private void initLogin() {
-        login.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]10[]25[]push"));
+        painelDeLogin.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]10[]25[]push"));
         JLabel label = new JLabel("Login");
         label.setFont(new Font("sansserif", 1, 30));
         label.setForeground(new Color(78, 84, 200));
-        login.add(label);
+        painelDeLogin.add(label);
         MyTextField txtEmail = new MyTextField();
         txtEmail.setPrefixIcon(new ImageIcon(getClass().getResource("/login_Registro/icon/mail.png")));
         txtEmail.setHint("Email");
-        login.add(txtEmail, "w 60%");
+        painelDeLogin.add(txtEmail, "w 60%");
         MyPasswordField txtPass = new MyPasswordField();
         txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/login_Registro/icon/pass.png")));
         txtPass.setHint("Senha");
-        login.add(txtPass, "w 60%");
+        painelDeLogin.add(txtPass, "w 60%");
         JButton cmdForget = new JButton("Esqueceu sua senha?");
         cmdForget.setForeground(new Color(100, 100, 100));
         cmdForget.setFont(new Font("sansserif", 1, 12));
         cmdForget.setContentAreaFilled(false);
         cmdForget.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        login.add(cmdForget);
+        painelDeLogin.add(cmdForget);
         Button cmd = new Button();
         cmd.setBackground(new Color(78, 84, 200));
         cmd.setForeground(new Color(250, 250, 250));
         cmd.setText("LOGIN");
-        login.add(cmd, "w 40%, h 40");
+        painelDeLogin.add(cmd, "w 40%, h 40");
         cmd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -127,7 +127,7 @@ public class LoginRegistro extends javax.swing.JLayeredPane {
                         Main.setUser(resultUsuarioDAO);
                         Main main = new Main();
                         main.show();
-                        ((JFrame) SwingUtilities.getWindowAncestor(login)).dispose();
+                        ((JFrame) SwingUtilities.getWindowAncestor(painelDeLogin)).dispose();
                     } else {
                         // tratar error
                         System.err.println("Usuario inválido!");
@@ -142,11 +142,11 @@ public class LoginRegistro extends javax.swing.JLayeredPane {
 
     public void showRegister(boolean show) {
         if (show) {
-            register.setVisible(true);
-            login.setVisible(false);
+            painelDeRegistro.setVisible(true);
+            painelDeLogin.setVisible(false);
         } else {
-            register.setVisible(false);
-            login.setVisible(true);
+            painelDeRegistro.setVisible(false);
+            painelDeLogin.setVisible(true);
         }
     }
 
@@ -154,15 +154,15 @@ public class LoginRegistro extends javax.swing.JLayeredPane {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        login = new javax.swing.JPanel();
-        register = new javax.swing.JPanel();
+        painelDeLogin = new javax.swing.JPanel();
+        painelDeRegistro = new javax.swing.JPanel();
 
         setLayout(new java.awt.CardLayout());
 
-        login.setBackground(new java.awt.Color(255, 255, 255));
+        painelDeLogin.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout loginLayout = new javax.swing.GroupLayout(login);
-        login.setLayout(loginLayout);
+        javax.swing.GroupLayout loginLayout = new javax.swing.GroupLayout(painelDeLogin);
+        painelDeLogin.setLayout(loginLayout);
         loginLayout.setHorizontalGroup(
             loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 327, Short.MAX_VALUE)
@@ -172,12 +172,12 @@ public class LoginRegistro extends javax.swing.JLayeredPane {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        add(login, "card3");
+        add(painelDeLogin, "card3");
 
-        register.setBackground(new java.awt.Color(255, 255, 255));
+        painelDeRegistro.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout registerLayout = new javax.swing.GroupLayout(register);
-        register.setLayout(registerLayout);
+        javax.swing.GroupLayout registerLayout = new javax.swing.GroupLayout(painelDeRegistro);
+        painelDeRegistro.setLayout(registerLayout);
         registerLayout.setHorizontalGroup(
             registerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 327, Short.MAX_VALUE)
@@ -187,11 +187,11 @@ public class LoginRegistro extends javax.swing.JLayeredPane {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        add(register, "card2");
+        add(painelDeRegistro, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel login;
-    private javax.swing.JPanel register;
+    private javax.swing.JPanel painelDeLogin;
+    private javax.swing.JPanel painelDeRegistro;
     // End of variables declaration//GEN-END:variables
 }

@@ -74,20 +74,24 @@ public class PainelInformativoLoginRegistro extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    @Override
-    protected void paintComponent(Graphics grphcs) {
-        Graphics2D g2 = (Graphics2D) grphcs;
-        GradientPaint gradiente = new GradientPaint(0, 0, new Color(78, 84, 200), 0, getHeight(), new Color(143, 148, 251));
-        g2.setPaint(gradiente);
-        g2.fillRect(0, 0, getWidth(), getHeight());
-        super.paintComponent(grphcs);
+    public void login(boolean login) {
+        if (this.isLogin != login) {
+            if (login) {
+                titulo.setText("Olá, Estudante!");
+                descricao.setText("Informe seus dados pessoais");
+                subDescricao.setText("e dê início aos seus estudos");
+                botao.setText("CADASTRAR");
+            } else {
+                titulo.setText("Bem-vindo!");
+                descricao.setText("Para acessar a plataforma, faça o login.");
+                subDescricao.setText("Bons estudos!");
+                botao.setText("LOGIN");
+            }
+            this.isLogin = login;
+        }
     }
 
-    public void adicionarEvento(ActionListener evento) {
-        this.evento = evento;
-    }
-
-    public void registrarEsquerda(double v) {
+    public void registrarDireita(double v) {
         v = Double.valueOf(df.format(v));
         login(false);
         layout.setComponentConstraints(titulo, "pad 0 -" + v + "% 0 0");
@@ -95,7 +99,7 @@ public class PainelInformativoLoginRegistro extends javax.swing.JPanel {
         layout.setComponentConstraints(subDescricao, "pad 0 -" + v + "% 0 0");
     }
 
-    public void registrarDireita(double v) {
+    public void registrarEsquerda(double v) {
         v = Double.valueOf(df.format(v));
         login(false);
         layout.setComponentConstraints(titulo, "pad 0 -" + v + "% 0 0");
@@ -119,21 +123,17 @@ public class PainelInformativoLoginRegistro extends javax.swing.JPanel {
         layout.setComponentConstraints(subDescricao, "pad 0 " + v + "% 0 " + v + "%");
     }
 
-    public void login(boolean login) {
-        if (this.isLogin != login) {
-            if (login) {
-                titulo.setText("Olá, Estudante!");
-                descricao.setText("Informe seus dados pessoais");
-                subDescricao.setText("e dê início aos seus estudos");
-                botao.setText("CADASTRAR");
-            } else {
-                titulo.setText("Bem-vindo!");
-                descricao.setText("Para acessar a plataforma, faça o login.");
-                subDescricao.setText("Bons estudos!");
-                botao.setText("LOGIN");
-            }
-            this.isLogin = login;
-        }
+    public void adicionarEvento(ActionListener evento) {
+        this.evento = evento;
+    }
+
+    @Override
+    protected void paintComponent(Graphics grphcs) {
+        Graphics2D g2 = (Graphics2D) grphcs;
+        GradientPaint gradiente = new GradientPaint(0, 0, new Color(78, 84, 200), 0, getHeight(), new Color(143, 148, 251));
+        g2.setPaint(gradiente);
+        g2.fillRect(0, 0, getWidth(), getHeight());
+        super.paintComponent(grphcs);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
