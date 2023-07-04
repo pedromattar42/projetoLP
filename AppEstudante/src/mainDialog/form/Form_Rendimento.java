@@ -79,6 +79,7 @@ public class Form_Rendimento extends javax.swing.JPanel {
         jLabel5.setText("RENDIMENTO GERAL (%)");
 
         incomeProgressBar.setToolTipText("");
+        incomeProgressBar.setStringPainted(true);
 
         javax.swing.GroupLayout roundPanel3Layout = new javax.swing.GroupLayout(roundPanel3);
         roundPanel3.setLayout(roundPanel3Layout);
