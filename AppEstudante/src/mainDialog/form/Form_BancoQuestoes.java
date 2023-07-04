@@ -13,10 +13,7 @@ import java.io.OutputStream;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author pedro
- */
+
 public class Form_BancoQuestoes extends javax.swing.JPanel {
 
     public Form_BancoQuestoes() {

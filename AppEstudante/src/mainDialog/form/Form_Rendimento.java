@@ -7,10 +7,6 @@ package mainDialog.form;
 import javax.swing.JCheckBox;
 import javax.swing.JProgressBar;
 
-/**
- *
- * @author pedro
- */
 public class Form_Rendimento extends javax.swing.JPanel {
 
     private int totalYield = 0; //total do rendimento do aluno, em porcentagem

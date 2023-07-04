@@ -4,10 +4,6 @@
  */
 package DTO;
 
-/**
- *
- * @author gussa
- */
 public class CalendarioDTO {
     private String info, horario, dia_semana;
     private int id_estudante;

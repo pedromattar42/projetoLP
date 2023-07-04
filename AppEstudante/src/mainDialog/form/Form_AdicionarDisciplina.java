@@ -10,10 +10,7 @@ import java.util.ArrayList;
 import mainDialog.main.Main;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author pedro
- */
+
 public class Form_AdicionarDisciplina extends javax.swing.JPanel {
 
     /**

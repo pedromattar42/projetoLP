@@ -53,39 +53,39 @@ public class Main extends javax.swing.JFrame {
         menu.addMenuEvent(new EventMenuSelected() {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
-               showFormByIndex(index, indexSubMenu); 
+                showFormByIndex(index, indexSubMenu);
             }
         });
         menu.setSelectedIndex(0, 0);
     }
 
-    public void showFormByIndex(int index, int indexSubMenu) {
-        if (index == 0 && indexSubMenu == 0) {
-            showForm(dashboardForm);
-        } else if (index == 1 && indexSubMenu == 0) {
-            showForm(adicionarDisciplinaForm);
-        } else if(index == 2 && indexSubMenu == 0){
-            showForm(bancoQuestoesForm);
-        } else if (index == 3 && indexSubMenu == 0) {
-            showForm(calendarioForm);
-        } else if (index == 5 && indexSubMenu == 0) {
-            showForm(rendimentoForm);
-        } else if (index == 6 && indexSubMenu == 1) {
-            showForm(enemFormVideos);
-        } else if (index == 6 && indexSubMenu == 2) {
-            showForm(enemFormMateriais);
-        } else if (index == 7 && indexSubMenu == 0) {
-            showForm(pomodoroForm);
-        } else {
-            showForm(new Form_Empty(index + " " + indexSubMenu));
-        }
-    }
-
-    public void showForm(Component com) {
+    public void showComponentsAndForm(Component com) {
         body.removeAll();
         body.add(com);
         body.repaint();
         body.revalidate();
+    }
+
+    public void showFormByIndex(int index, int indexSubMenu) {
+        if (index == 0 && indexSubMenu == 0) {
+            showComponentsAndForm(dashboardForm);
+        } else if (index == 1 && indexSubMenu == 0) {
+            showComponentsAndForm(adicionarDisciplinaForm);
+        } else if (index == 2 && indexSubMenu == 0) {
+            showComponentsAndForm(bancoQuestoesForm);
+        } else if (index == 3 && indexSubMenu == 0) {
+            showComponentsAndForm(calendarioForm);
+        } else if (index == 5 && indexSubMenu == 0) {
+            showComponentsAndForm(rendimentoForm);
+        } else if (index == 6 && indexSubMenu == 1) {
+            showComponentsAndForm(enemFormVideos);
+        } else if (index == 6 && indexSubMenu == 2) {
+            showComponentsAndForm(enemFormMateriais);
+        } else if (index == 7 && indexSubMenu == 0) {
+            showComponentsAndForm(pomodoroForm);
+        } else {
+            showComponentsAndForm(new Form_Empty(index + " " + indexSubMenu));
+        }
     }
 
     public static Main getMain() {
@@ -165,30 +165,6 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Main().setVisible(true);

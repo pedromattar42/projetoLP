@@ -7,8 +7,6 @@ package mainDialog.form;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -17,12 +15,7 @@ import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
-import javax.swing.JList;
 
-/**
- *
- * @author pedro
- */
 public class Form_Pomodoro extends javax.swing.JPanel {
 
     private Timer pomodoroControl;
@@ -71,11 +64,6 @@ public class Form_Pomodoro extends javax.swing.JPanel {
         pomodoroTimer.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         pomodoroTimer.setText("00:00");
         ((AbstractDocument) pomodoroTimer.getDocument()).setDocumentFilter(new IntervaloDocumentFilter());
-        pomodoroTimer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pomodoroTimerActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("CONTÉM MÚSICA DE FUNDO");
 
@@ -295,10 +283,6 @@ public class Form_Pomodoro extends javax.swing.JPanel {
         }
         isPaused = !isPaused;
     }//GEN-LAST:event_pausarPomodoroActionPerformed
-
-    private void pomodoroTimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pomodoroTimerActionPerformed
-    
-       }//GEN-LAST:event_pomodoroTimerActionPerformed
 
     private void novoPomodoroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoPomodoroActionPerformed
          if (pomodoroControl != null && pomodoroControl.isRunning()) {
