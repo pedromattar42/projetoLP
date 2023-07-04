@@ -52,24 +52,34 @@ public class Form_Rendimento extends javax.swing.JPanel {
 
         roundPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        checkBoxAllActivities.setBackground(new java.awt.Color(255, 255, 255));
         checkBoxAllActivities.setText("Fiz todas as atividades propostas durante a semana");
 
+        checkBoxEveryClass.setBackground(new java.awt.Color(255, 255, 255));
         checkBoxEveryClass.setText("Compareci a todas as aulas");
 
+        checkBoxAditionalResources.setBackground(new java.awt.Color(255, 255, 255));
         checkBoxAditionalResources.setText("Busquei explorar recursos de estudo adicionais");
 
+        checkBoxAttendClass.setBackground(new java.awt.Color(255, 255, 255));
         checkBoxAttendClass.setText("Participei ativamente de alguma aula");
 
+        checkBoxContribute.setBackground(new java.awt.Color(255, 255, 255));
         checkBoxContribute.setText("Contribui de forma colaborativa");
 
+        checkBoxReviews.setBackground(new java.awt.Color(255, 255, 255));
         checkBoxReviews.setText("Fiz revisões regulares");
 
+        checkBoxTimeline.setBackground(new java.awt.Color(255, 255, 255));
         checkBoxTimeline.setText("Mantive meu cronograma de estudos nas disciplinas");
 
+        checkBoxStudyTime.setBackground(new java.awt.Color(255, 255, 255));
         checkBoxStudyTime.setText("Dediquei um tempo de estudo para a(s) disciplina(s) que possuo dificuldade");
 
+        checkBoxMeetDeadlines.setBackground(new java.awt.Color(255, 255, 255));
         checkBoxMeetDeadlines.setText("Cumprir prazos estabelecidos");
 
+        checkBoxIntegrateKnowledge.setBackground(new java.awt.Color(255, 255, 255));
         checkBoxIntegrateKnowledge.setText("Integrei conhecimentos entre as disciplinas");
 
         jLabel5.setText("RENDIMENTO GERAL (%)");
@@ -91,27 +101,27 @@ public class Form_Rendimento extends javax.swing.JPanel {
                         .addGap(12, 12, 12)
                         .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(checkBoxReviews, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkBoxMeetDeadlines, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkBoxMeetDeadlines)
                             .addGroup(roundPanel3Layout.createSequentialGroup()
-                                .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(checkBoxContribute, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(checkBoxAttendClass, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(checkBoxAttendClass, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(checkBoxTimeline)
-                                    .addComponent(checkBoxStudyTime, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(checkBoxTimeline))
+                            .addGroup(roundPanel3Layout.createSequentialGroup()
+                                .addComponent(checkBoxContribute, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkBoxStudyTime, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(roundPanel3Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(checkBoxAditionalResources, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(checkBoxEveryClass)))
                     .addGroup(roundPanel3Layout.createSequentialGroup()
-                        .addGap(443, 443, 443)
-                        .addComponent(jLabel5))
+                        .addGap(72, 72, 72)
+                        .addComponent(incomeProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 908, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(roundPanel3Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(incomeProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 908, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(435, 435, 435)
+                        .addComponent(jLabel5)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         roundPanel3Layout.setVerticalGroup(
             roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,9 +146,9 @@ public class Form_Rendimento extends javax.swing.JPanel {
                 .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checkBoxIntegrateKnowledge)
                     .addComponent(checkBoxMeetDeadlines))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(incomeProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(172, 172, 172))
         );
@@ -157,7 +167,7 @@ public class Form_Rendimento extends javax.swing.JPanel {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(roundPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12))
+                .addGap(20, 20, 20))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

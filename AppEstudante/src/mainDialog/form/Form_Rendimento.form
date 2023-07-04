@@ -47,7 +47,7 @@
                           <Component id="roundPanel3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -85,17 +85,16 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="checkBoxReviews" min="-2" pref="257" max="-2" attributes="0"/>
-                                  <Component id="checkBoxMeetDeadlines" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
+                                  <Component id="checkBoxMeetDeadlines" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="checkBoxContribute" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
-                                          <Component id="checkBoxAttendClass" alignment="0" min="-2" pref="269" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="checkBoxAttendClass" min="-2" pref="228" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="checkBoxTimeline" min="-2" max="-2" attributes="0"/>
-                                          <Component id="checkBoxStudyTime" min="-2" pref="446" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="checkBoxTimeline" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="checkBoxContribute" min="-2" pref="204" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="checkBoxStudyTime" min="-2" pref="460" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -107,15 +106,15 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="443" max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                               <Component id="incomeProgressBar" min="-2" pref="908" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="435" max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -148,9 +147,9 @@
                           <Component id="checkBoxIntegrateKnowledge" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="checkBoxMeetDeadlines" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="24" max="32767" attributes="0"/>
+                      <EmptySpace pref="36" max="32767" attributes="0"/>
                       <Component id="jLabel5" min="-2" pref="35" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="incomeProgressBar" min="-2" pref="61" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                   </Group>
@@ -160,51 +159,81 @@
           <SubComponents>
             <Component class="javax.swing.JCheckBox" name="checkBoxAllActivities">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Fiz todas as atividades propostas durante a semana"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxEveryClass">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Compareci a todas as aulas"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxAditionalResources">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Busquei explorar recursos de estudo adicionais"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxAttendClass">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Participei ativamente de alguma aula"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxContribute">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Contribui de forma colaborativa"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxReviews">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Fiz revis&#xf5;es regulares"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxTimeline">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Mantive meu cronograma de estudos nas disciplinas"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxStudyTime">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Dediquei um tempo de estudo para a(s) disciplina(s) que possuo dificuldade"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxMeetDeadlines">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cumprir prazos estabelecidos"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxIntegrateKnowledge">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Integrei conhecimentos entre as disciplinas"/>
               </Properties>
             </Component>
