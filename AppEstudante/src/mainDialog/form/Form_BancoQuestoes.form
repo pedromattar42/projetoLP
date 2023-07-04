@@ -70,9 +70,9 @@
                           <EmptySpace min="-2" pref="391" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel4" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="enemPplProvas" min="-2" pref="160" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="simuladosBotao" min="-2" max="-2" attributes="0"/>
+                                  <Component id="enemPplBotao" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -85,12 +85,12 @@
                           <EmptySpace min="-2" pref="318" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" pref="137" max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" pref="163" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              <Component id="enemResolvidoBotao" min="-2" max="-2" attributes="0"/>
+                              <Component id="provasEnem" min="-2" max="-2" attributes="0"/>
                               <Component id="exerciciosSeparadosPorDisciplinaBotao" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -100,7 +100,7 @@
                           <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="349" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -114,13 +114,13 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="simuladosBotao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="enemPplProvas" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="enemPplBotao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="enemResolvidoBotao" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="provasEnem" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -146,12 +146,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ENEM DE 2009 - 2014 RESOLVIDO"/>
+            <Property name="text" type="java.lang.String" value="PROVAS ENEM 2008-2019"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="enemPplProvas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="SIMULADOS MODELO ENEM"/>
+            <Property name="text" type="java.lang.String" value="PROVAS ENEM PPL 2009-2016"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -171,7 +171,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="milQuestoesBotaoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="simuladosBotao">
+        <Component class="javax.swing.JButton" name="enemPplBotao">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/images/baixar-pdf.png"/>
@@ -179,10 +179,10 @@
             <Property name="text" type="java.lang.String" value="BAIXAR"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="simuladosBotaoMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="enemPplBotaoMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="enemResolvidoBotao">
+        <Component class="javax.swing.JButton" name="provasEnem">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/images/baixar-pdf.png"/>
@@ -190,7 +190,7 @@
             <Property name="text" type="java.lang.String" value="BAIXAR"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="enemResolvidoBotaoMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="provasEnemMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="exerciciosSeparadosPorDisciplinaBotao">

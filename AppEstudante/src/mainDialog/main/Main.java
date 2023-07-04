@@ -66,8 +66,7 @@ public class Main extends javax.swing.JFrame {
             showForm(adicionarDisciplinaForm);
         } else if(index == 2 && indexSubMenu == 0){
             showForm(bancoQuestoesForm);
-        }
-        else if (index == 3 && indexSubMenu == 0) {
+        } else if (index == 3 && indexSubMenu == 0) {
             showForm(calendarioForm);
         } else if (index == 5 && indexSubMenu == 0) {
             showForm(rendimentoForm);
