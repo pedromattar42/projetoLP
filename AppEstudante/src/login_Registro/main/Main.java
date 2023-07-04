@@ -1,7 +1,7 @@
 package login_Registro.main;
 
-import login_Registro.component.PanelCover;
-import login_Registro.component.PanelLoginAndRegister;
+import login_Registro.component.PainelInformativoLoginRegistro;
+import login_Registro.component.LoginRegistro;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
@@ -16,58 +16,58 @@ public class Main extends javax.swing.JFrame {
 
     private final DecimalFormat df = new DecimalFormat("##0.###", DecimalFormatSymbols.getInstance(Locale.US));
     private MigLayout layout;
-    private PanelCover cover;
-    private PanelLoginAndRegister loginAndRegister;
+    private PainelInformativoLoginRegistro capa;
+    private LoginRegistro loginRegistro;
     private boolean isLogin = true;
-    private final double addSize = 30;
-    private final double coverSize = 40;
-    private final double loginSize = 60;
+    private final double tamanhoAdicional = 30;
+    private final double tamanhoCapa = 40;
+    private final double tamanhoLogin = 60;
 
     public Main() {
         initComponents();
-        init();
+        inicializar();
     }
 
-    private void init() {
+    private void inicializar() {
         layout = new MigLayout("fill, insets 0");
-        cover = new PanelCover();
-        loginAndRegister = new PanelLoginAndRegister();
+        capa = new PainelInformativoLoginRegistro();
+        loginRegistro = new LoginRegistro();
         TimingTarget target = new TimingTargetAdapter() {
             @Override
             public void timingEvent(float fraction) {
-                double fractionCover;
-                double fractionLogin;
-                double size = coverSize;
+                double fracaoCapa;
+                double fracaoLogin;
+                double tamanho = tamanhoCapa;
                 if (fraction <= 0.5f) {
-                    size += fraction * addSize;
+                    tamanho += fraction * tamanhoAdicional;
                 } else {
-                    size += addSize - fraction * addSize;
+                    tamanho += tamanhoAdicional - fraction * tamanhoAdicional;
                 }
                 if (isLogin) {
-                    fractionCover = 1f - fraction;
-                    fractionLogin = fraction;
+                    fracaoCapa = 1f - fraction;
+                    fracaoLogin = fraction;
                     if (fraction >= 0.5f) {
-                        cover.registerRight(fractionCover * 100);
+                        capa.registrarDireita(fracaoCapa * 100);
                     } else {
-                        cover.loginRight(fractionLogin * 100);
+                        capa.loginDireita(fracaoLogin * 100);
                     }
                 } else {
-                    fractionCover = fraction;
-                    fractionLogin = 1f - fraction;
+                    fracaoCapa = fraction;
+                    fracaoLogin = 1f - fraction;
                     if (fraction <= 0.5f) {
-                        cover.registerLeft(fraction * 100);
+                        capa.registrarEsquerda(fraction * 100);
                     } else {
-                        cover.loginLeft((1f - fraction) * 100);
+                        capa.loginEsquerda((1f - fraction) * 100);
                     }
                 }
                 if (fraction >= 0.5f) {
-                    loginAndRegister.showRegister(isLogin);
+                    loginRegistro.showRegister(isLogin);
                 }
-                fractionCover = Double.valueOf(df.format(fractionCover));
-                fractionLogin = Double.valueOf(df.format(fractionLogin));
-                layout.setComponentConstraints(cover, "width " + size + "%, pos " + fractionCover + "al 0 n 100%");
-                layout.setComponentConstraints(loginAndRegister, "width " + loginSize + "%, pos " + fractionLogin + "al 0 n 100%");
-                bg.revalidate();
+                fracaoCapa = Double.valueOf(df.format(fracaoCapa));
+                fracaoLogin = Double.valueOf(df.format(fracaoLogin));
+                layout.setComponentConstraints(capa, "width " + tamanho + "%, pos " + fracaoCapa + "al 0 n 100%");
+                layout.setComponentConstraints(loginRegistro, "width " + tamanhoLogin + "%, pos " + fracaoLogin + "al 0 n 100%");
+                painelFundo.revalidate();
             }
 
             @Override
@@ -78,13 +78,13 @@ public class Main extends javax.swing.JFrame {
         Animator animator = new Animator(800, target);
         animator.setAcceleration(0.5f);
         animator.setDeceleration(0.5f);
-        animator.setResolution(0);  //  for smooth animation
-        bg.setLayout(layout);
-        bg.add(cover, "width " + coverSize + "%, pos " + (isLogin ? "1al" : "0al") + " 0 n 100%");
-        bg.add(loginAndRegister, "width " + loginSize + "%, pos " + (isLogin ? "0al" : "1al") + " 0 n 100%"); //  1al as 100%
-        loginAndRegister.showRegister(!isLogin);
-        cover.login(isLogin);
-        cover.addEvent(new ActionListener() {
+        animator.setResolution(0);  //  para animação suave
+        painelFundo.setLayout(layout);
+        painelFundo.add(capa, "width " + tamanhoCapa + "%, pos " + (isLogin ? "1al" : "0al") + " 0 n 100%");
+        painelFundo.add(loginRegistro, "width " + tamanhoLogin + "%, pos " + (isLogin ? "0al" : "1al") + " 0 n 100%"); //  1al como 100%
+        loginRegistro.showRegister(!isLogin);
+        capa.login(isLogin);
+        capa.adicionarEvento(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if (!animator.isRunning()) {
@@ -94,20 +94,21 @@ public class Main extends javax.swing.JFrame {
         });
     }
 
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bg = new javax.swing.JLayeredPane();
+        painelFundo = new javax.swing.JLayeredPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        bg.setBackground(new java.awt.Color(255, 255, 255));
-        bg.setOpaque(true);
+        painelFundo.setBackground(new java.awt.Color(255, 255, 255));
+        painelFundo.setOpaque(true);
 
-        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
-        bg.setLayout(bgLayout);
+        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(painelFundo);
+        painelFundo.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 933, Short.MAX_VALUE)
@@ -121,11 +122,11 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(painelFundo, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg)
+            .addComponent(painelFundo)
         );
 
         pack();
@@ -165,6 +166,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLayeredPane bg;
+    private javax.swing.JLayeredPane painelFundo;
     // End of variables declaration//GEN-END:variables
 }

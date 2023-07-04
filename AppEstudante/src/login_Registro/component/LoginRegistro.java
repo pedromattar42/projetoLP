@@ -20,9 +20,9 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import net.miginfocom.swing.MigLayout;
 
-public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
+public class LoginRegistro extends javax.swing.JLayeredPane {
 
-    public PanelLoginAndRegister() {
+    public LoginRegistro() {
         initComponents();
         initRegister();
         initLogin();
