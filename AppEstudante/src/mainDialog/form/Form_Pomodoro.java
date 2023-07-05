@@ -38,6 +38,7 @@ public class Form_Pomodoro extends javax.swing.JPanel {
         pomodoroTimer = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         novoPomodoro = new javax.swing.JButton();
+        pausarPomodoro2 = new javax.swing.JButton();
 
         card1.setColor1(new java.awt.Color(255, 51, 51));
         card1.setColor2(new java.awt.Color(255, 255, 204));
@@ -64,8 +65,14 @@ public class Form_Pomodoro extends javax.swing.JPanel {
         });
 
         pomodoroTimer.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        pomodoroTimer.setText("00:00");
+        pomodoroTimer.setText("25:00");
+        pomodoroTimer.setToolTipText("");
         ((AbstractDocument) pomodoroTimer.getDocument()).setDocumentFilter(new IntervaloDocumentFilter());
+        pomodoroTimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pomodoroTimerActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("CONTÉM MÚSICA DE FUNDO");
 
@@ -76,24 +83,36 @@ public class Form_Pomodoro extends javax.swing.JPanel {
             }
         });
 
+        pausarPomodoro2.setText("Música");
+        pausarPomodoro2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mutarPomodoroAction(evt);
+            }
+        });
+
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
         roundPanel1Layout.setHorizontalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addComponent(pausarPomodoro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pomodoroTimer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(novoPomodoro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(iniciarPomodoro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(276, 276, 276))
+                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
+                        .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addGroup(roundPanel1Layout.createSequentialGroup()
+                                .addComponent(pausarPomodoro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pomodoroTimer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(novoPomodoro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(iniciarPomodoro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(276, 276, 276))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
+                        .addComponent(pausarPomodoro2)
+                        .addContainerGap())))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +126,9 @@ public class Form_Pomodoro extends javax.swing.JPanel {
                     .addComponent(pausarPomodoro, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(novoPomodoro, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(iniciarPomodoro, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(102, 102, 102))
+                .addGap(65, 65, 65)
+                .addComponent(pausarPomodoro2)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -268,11 +289,15 @@ public class Form_Pomodoro extends javax.swing.JPanel {
         }
     }
 
-    private void stopAudioLoop() {
+    private boolean stopAudioLoop() {
         if (audioClip != null && audioClip.isRunning()) {
             audioClip.stop();
             audioClip.close();
+            
+            return true;
         }
+        
+        return false;
     }
 
     private void pausarPomodoroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pausarPomodoroActionPerformed
@@ -293,13 +318,23 @@ public class Form_Pomodoro extends javax.swing.JPanel {
             pomodoroControl.stop();
         }
         stopAudioLoop();
-        pomodoroTimer.setText("00:00");
+        pomodoroTimer.setText("25:00");
         pausarPomodoro.setText("PAUSAR");
         pomodoroTimer.setEditable(true);
         iniciarPomodoro.setEnabled(true);
         pausarPomodoro.setEnabled(false);
         novoPomodoro.setEnabled(false);
     }//GEN-LAST:event_novoPomodoroActionPerformed
+
+    private void pomodoroTimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pomodoroTimerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pomodoroTimerActionPerformed
+
+    private void mutarPomodoroAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mutarPomodoroAction
+        if(!stopAudioLoop()){
+            playAudioLoop();
+        }
+    }//GEN-LAST:event_mutarPomodoroAction
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -309,6 +344,7 @@ public class Form_Pomodoro extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton novoPomodoro;
     private javax.swing.JButton pausarPomodoro;
+    private javax.swing.JButton pausarPomodoro2;
     private javax.swing.JTextField pomodoroTimer;
     private javaswingdev.swing.RoundPanel roundPanel1;
     // End of variables declaration//GEN-END:variables
