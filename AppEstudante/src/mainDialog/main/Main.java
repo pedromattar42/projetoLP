@@ -10,6 +10,7 @@ import mainDialog.form.Form_Enem_Materiais;
 import mainDialog.form.Form_Enem_Videos;
 import mainDialog.form.Form_Pomodoro;
 import mainDialog.form.Form_Rendimento;
+import mainDialog.form.Form_RendimentoDisciplina;
 import mainDialog.menu.EventMenuSelected;
 
 public class Main extends javax.swing.JFrame {
@@ -24,6 +25,7 @@ public class Main extends javax.swing.JFrame {
     private Form_Enem_Materiais enemFormMateriais;
     private Form_Calendario calendarioForm;
     private Form_BancoQuestoes bancoQuestoesForm;
+    private Form_RendimentoDisciplina rendimentoDisciplinaForm;
 
     public Main() {
         initComponents();
@@ -48,6 +50,7 @@ public class Main extends javax.swing.JFrame {
         enemFormMateriais = new Form_Enem_Materiais();
         calendarioForm = new Form_Calendario();
         bancoQuestoesForm = new Form_BancoQuestoes();
+        rendimentoDisciplinaForm = new Form_RendimentoDisciplina();
 
         titleBar.initializeJFrame(this);
         menu.addMenuEvent(new EventMenuSelected() {
@@ -75,6 +78,8 @@ public class Main extends javax.swing.JFrame {
             showComponentsAndForm(bancoQuestoesForm);
         } else if (index == 3 && indexSubMenu == 0) {
             showComponentsAndForm(calendarioForm);
+        } else if (index == 4 && indexSubMenu == 0) {
+            showComponentsAndForm(rendimentoDisciplinaForm);
         } else if (index == 5 && indexSubMenu == 0) {
             showComponentsAndForm(rendimentoForm);
         } else if (index == 6 && indexSubMenu == 1) {
