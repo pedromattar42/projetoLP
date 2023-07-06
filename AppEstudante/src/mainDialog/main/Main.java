@@ -42,6 +42,7 @@ public class Main extends javax.swing.JFrame {
 
     private void init() {
         main = this;
+        // Inicializa os formulários
         pomodoroForm = new Form_Pomodoro();
         dashboardForm = new Form_Dashboard();
         rendimentoForm = new Form_Rendimento();
@@ -53,6 +54,7 @@ public class Main extends javax.swing.JFrame {
         rendimentoDisciplinaForm = new Form_RendimentoDisciplina();
 
         titleBar.initializeJFrame(this);
+        // Define o evento de seleção de menu
         menu.addMenuEvent(new EventMenuSelected() {
             @Override
             public void menuSelected(int index, int indexSubMenu) {
@@ -63,12 +65,14 @@ public class Main extends javax.swing.JFrame {
     }
 
     public void showComponentsAndForm(Component com) {
+        // Mostra o formulário no painel body
         body.removeAll();
         body.add(com);
         body.repaint();
         body.revalidate();
     }
 
+    // Mostra o formulário com base no índice do menu selecionado
     public void showFormByIndex(int index, int indexSubMenu) {
         if (index == 0 && indexSubMenu == 0) {
             showComponentsAndForm(dashboardForm);
