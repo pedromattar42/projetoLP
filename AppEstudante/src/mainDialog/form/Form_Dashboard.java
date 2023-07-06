@@ -10,7 +10,6 @@ public class Form_Dashboard extends javax.swing.JPanel {
     public Form_Dashboard() {
         initComponents();
         init();
-        infoEstudante();
     }
 
     private void init() {
@@ -24,52 +23,39 @@ public class Form_Dashboard extends javax.swing.JPanel {
 
         card3 = new mainDialog.card.Card();
         roundPanel1 = new javaswingdev.swing.RoundPanel();
-        textField1 = new textfield.TextField();
-        textField2 = new textfield.TextField();
-        textField4 = new textfield.TextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setOpaque(false);
 
         card3.setColor1(new java.awt.Color(102, 255, 255));
         card3.setColor2(new java.awt.Color(0, 0, 0));
+        card3.setDescription("App de ajuda ao Estudante");
         card3.setIcon(javaswingdev.GoogleMaterialDesignIcon.GROUP);
+        card3.setValues("Central");
 
         roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
         roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         roundPanel1.setRound(10);
 
-        textField1.setEditable(false);
-        textField1.setLabelText("Nome");
-
-        textField2.setEditable(false);
-        textField2.setLabelText("Email");
-
-        textField4.setEditable(false);
-        textField4.setAutoscrolls(false);
-        textField4.setLabelText("Número de matrícula");
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("SEJA BEM-VINDO!");
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
         roundPanel1Layout.setHorizontalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
-                .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
-                .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(262, 262, 262))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGap(78, 78, 78)
+                .addComponent(jLabel1)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -90,25 +76,15 @@ public class Form_Dashboard extends javax.swing.JPanel {
                 .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private mainDialog.card.Card card3;
+    private javax.swing.JLabel jLabel1;
     private javaswingdev.swing.RoundPanel roundPanel1;
-    private textfield.TextField textField1;
-    private textfield.TextField textField2;
-    private textfield.TextField textField4;
     // End of variables declaration//GEN-END:variables
 
-    public void infoEstudante() {
-        UsuarioDAO estudante = new UsuarioDAO();
-        ArrayList<UsuarioDTO> lista = estudante.infoEstudante();
-        
-        textField1.setText(lista.get(0).getNome());
-        textField2.setText(lista.get(0).getEmail());
-        textField4.setText(lista.get(0).getMatricula());
-    }
 }
 

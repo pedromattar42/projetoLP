@@ -65,30 +65,4 @@ public class UsuarioDAO {
             return -1;
         }
     }
-    
-    public ArrayList<UsuarioDTO> infoEstudante(){
-        conn = new ConexaoDAO().contectarDB();
-        ArrayList<UsuarioDTO> lista = new ArrayList<>();
-        
-        try {
-            String sql = "select * from estudantes where id_estudante = ?";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, Main.getUser());
-
-            ResultSet result = pstm.executeQuery();
-            result.next();
-            
-            UsuarioDTO materia = new UsuarioDTO();
-            materia.setNome(result.getString("nome"));
-            materia.setEmail(result.getString("email"));
-            materia.setMatricula(result.getString("matricula"));
-            
-            lista.add(materia);
-
-        } catch (Exception e) {
-            System.err.println("Error (infoEstudante): " + e);
-        }
-
-        return lista;
-    }
 }
