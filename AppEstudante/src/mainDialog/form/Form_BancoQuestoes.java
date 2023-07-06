@@ -35,7 +35,7 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
         provasEnem = new javax.swing.JButton();
         exerciciosSeparadosPorDisciplinaBotao = new javax.swing.JButton();
         questoesMatematicaLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        questoesMatematicaBotao = new javax.swing.JButton();
 
         card1.setColor1(new java.awt.Color(153, 153, 153));
         card1.setColor2(new java.awt.Color(0, 0, 0));
@@ -100,11 +100,11 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
 
         questoesMatematicaLabel.setText("QUESTÕES MATEMÁTICA");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/baixar-pdf.png"))); // NOI18N
-        jButton1.setText("BAIXAR");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        questoesMatematicaBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/baixar-pdf.png"))); // NOI18N
+        questoesMatematicaBotao.setText("BAIXAR");
+        questoesMatematicaBotao.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                questoesMatematicaBotaoMouseClicked(evt);
             }
         });
 
@@ -118,7 +118,7 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
                         .addGap(333, 333, 333)
                         .addComponent(questoesMatematicaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
-                        .addComponent(jButton1))
+                        .addComponent(questoesMatematicaBotao))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addGap(304, 304, 304)
                         .addComponent(exerciciosPorDisciplinaLabel)
@@ -162,7 +162,7 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(questoesMatematicaLabel)
-                    .addComponent(jButton1))
+                    .addComponent(questoesMatematicaBotao))
                 .addContainerGap(140, Short.MAX_VALUE))
         );
 
@@ -257,9 +257,9 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
         downloadAndShowDialog("questoesPorAssunto.zip");
     }//GEN-LAST:event_exerciciosSeparadosPorDisciplinaBotaoMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void questoesMatematicaBotaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_questoesMatematicaBotaoMouseClicked
         downloadAndShowDialog("matematicaApostilas.zip");
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_questoesMatematicaBotaoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -270,9 +270,9 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
     private javax.swing.JLabel enemPplLabel;
     private javax.swing.JLabel exerciciosPorDisciplinaLabel;
     private javax.swing.JButton exerciciosSeparadosPorDisciplinaBotao;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton milQuestoesBotao;
     private javax.swing.JButton provasEnem;
+    private javax.swing.JButton questoesMatematicaBotao;
     private javax.swing.JLabel questoesMatematicaLabel;
     private javaswingdev.swing.RoundPanel roundPanel1;
     // End of variables declaration//GEN-END:variables

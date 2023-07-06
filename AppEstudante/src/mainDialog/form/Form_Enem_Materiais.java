@@ -64,11 +64,6 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
             public String getElementAt(int i) { return strings[i]; }
         });
         apostilasLista.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        apostilasLista.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                apostilasListaMouseClicked(evt);
-            }
-        });
         apostilasLista.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 apostilasListaValueChanged(evt);
@@ -160,16 +155,15 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
 
             switch (selectedIndex) {
                 case 0:
-                    downloadAndShowDialog("cartilha_redacoes_LucasFelpi.pdf", "Sucesso. Seu PDF foi baixado!", "Falha ao baixar o PDF.");
+                    downloadAndShowDialog("cartilha_redacoes_LucasFelpi.pdf");
                     break;
                 case 1:
-                    downloadAndShowDialog("repertorios-redacao.pdf", "Sucesso. Seu PDF foi baixado!", "Falha ao baixar o PDF.");
+                    downloadAndShowDialog("repertorios-redacao.pdf");
                     break;
                 case 2:
-                    downloadAndShowDialog("Situacoes_nota_zero.pdf", "Sucesso. Seu PDF foi baixado!", "Falha ao baixar o PDF.");
-                    break;
+                    downloadAndShowDialog("Situacoes_nota_zero.pdf");
                 case 3:
-                    downloadAndShowDialog("competencias.pdf", "Sucesso. Seu PDF foi baixado!", "Falha ao baixar o PDF.");
+                    downloadAndShowDialog("competencias.pdf");
                     break;
                 default:
                     throw new AssertionError();
@@ -184,16 +178,16 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
 
                 switch (selectedIndex) {
                     case 0:
-                        downloadAndShowDialog("ciencias_naturais_em_br.pdf", "Sucesso. Seu PDF foi baixado!", "Falha ao baixar o PDF.");
+                        downloadAndShowDialog("ciencias_naturais_em_br.pdf");
                         break;
                     case 1:
-                        downloadAndShowDialog("ciencias_humanas_em_br.pdf", "Sucesso. Seu PDF foi baixado!", "Falha ao baixar o PDF.");
+                        downloadAndShowDialog("ciencias_humanas_em_br.pdf");
                         break;
                     case 2:
-                        downloadAndShowDialog("linguagens_codigos_em_br.pdf", "Sucesso. Seu PDF foi baixado!", "Falha ao baixar o PDF.");
+                        downloadAndShowDialog("linguagens_codigos_em_br.pdf");
                         break;
                     case 3:
-                        downloadAndShowDialog("encceja_matematica_ens_medio.pdf", "Sucesso. Seu PDF foi baixado!", "Falha ao baixar o PDF.");
+                        downloadAndShowDialog("encceja_matematica_ens_medio.pdf");
                         break;
                     default:
                         throw new AssertionError();
@@ -207,7 +201,7 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
 
             switch (selectedIndex) {
                 case 0:
-                    downloadAndShowDialog("Guia-dos-Assuntos-do-Enem.pdf", "Sucesso. Seu PDF foi baixado!", "Falha ao baixar o PDF.");
+                    downloadAndShowDialog("Guia-dos-Assuntos-do-Enem.pdf");
                     break;
                 default:
                     throw new AssertionError();
@@ -215,11 +209,7 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_principaisAssuntosListaValueChanged
 
-    private void apostilasListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apostilasListaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_apostilasListaMouseClicked
-
-    private void downloadAndShowDialog(String filename, String successMessage, String failureMessage) {
+    private void downloadAndShowDialog(String filename) {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setSelectedFile(new File(filename));
         int returnValue = fileChooser.showSaveDialog(this);
@@ -234,9 +224,9 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
             boolean success = downloadFile(inputStream, filePath);
 
             if (success) {
-                showSuccessDialog(successMessage);
+                showSuccessDialog();
             } else {
-                showFailureDialog(failureMessage);
+                showFailureDialog();
             }
         }
     }
@@ -255,12 +245,12 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
             }
     }
 
-    private void showSuccessDialog(String message) {
-        JOptionPane.showMessageDialog(this, message, "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+    private void showSuccessDialog() {
+        JOptionPane.showMessageDialog(this, "Sucesso. Seu PDF foi baixado!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private void showFailureDialog(String message) {
-        JOptionPane.showMessageDialog(this, message, "Falha", JOptionPane.ERROR_MESSAGE);
+    private void showFailureDialog() {
+        JOptionPane.showMessageDialog(this, "Falha ao baixar o PDF.", "Falha!", JOptionPane.ERROR_MESSAGE);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

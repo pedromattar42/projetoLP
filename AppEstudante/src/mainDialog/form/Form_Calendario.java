@@ -29,7 +29,7 @@ public class Form_Calendario extends javax.swing.JPanel {
         roundPanel1 = new javaswingdev.swing.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         calendarioTabela = new mainDialog.structural.table.Table();
-        jButton1 = new javax.swing.JButton();
+        submissaoBotao = new javax.swing.JButton();
 
         card1.setDescription("Nessa aba você poderá customizar a sua rotina de estudos semanal.");
         card1.setIcon(javaswingdev.GoogleMaterialDesignIcon.DATE_RANGE);
@@ -73,12 +73,12 @@ public class Form_Calendario extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(calendarioTabela);
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 255));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("SALVAR");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        submissaoBotao.setBackground(new java.awt.Color(153, 153, 255));
+        submissaoBotao.setForeground(new java.awt.Color(255, 255, 255));
+        submissaoBotao.setText("SALVAR");
+        submissaoBotao.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                submissaoBotaoMouseClicked(evt);
             }
         });
 
@@ -88,7 +88,7 @@ public class Form_Calendario extends javax.swing.JPanel {
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(submissaoBotao, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -99,7 +99,7 @@ public class Form_Calendario extends javax.swing.JPanel {
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jButton1)
+                .addComponent(submissaoBotao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(46, Short.MAX_VALUE))
@@ -130,19 +130,19 @@ public class Form_Calendario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void submissaoBotaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submissaoBotaoMouseClicked
         CalendarioDAO rotinaDAO = new CalendarioDAO();
         rotinaDAO.excluirRotina();
         addRotina();
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_submissaoBotaoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private mainDialog.structural.table.Table calendarioTabela;
     private mainDialog.card.Card card1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javaswingdev.swing.RoundPanel roundPanel1;
+    private javax.swing.JButton submissaoBotao;
     // End of variables declaration//GEN-END:variables
 
     private void addRotina() {
