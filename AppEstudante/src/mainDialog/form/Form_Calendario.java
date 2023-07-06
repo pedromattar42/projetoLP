@@ -13,9 +13,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class Form_Calendario extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Form_Calendario
-     */
     public Form_Calendario() {
         initComponents();
         listarRotina();
