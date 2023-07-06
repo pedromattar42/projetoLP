@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import net.miginfocom.swing.MigLayout;
 
@@ -61,25 +62,31 @@ public class LoginRegistro extends javax.swing.JLayeredPane {
             public void actionPerformed(ActionEvent e) {
                 try {
                     UsuarioDTO estudante = new UsuarioDTO();
+                    
+                    System.out.println(txtEmail.getText().equals("") );
+                    System.out.println(txtEmail.getText().equals(null) );
+                    System.out.println(txtEmail.getText().equals(" ") );
+                    
+                    if (!txtEmail.getText().equals("") && !txtPass.getText().equals("") && !txtUser.getText().equals("") && !txtNumeroMatricula.getText().equals("")){
+                        estudante.setEmail(txtEmail.getText());
+                        estudante.setSenha(txtPass.getText());
+                        estudante.setNome(txtUser.getText());
+                        estudante.setMatricula(txtNumeroMatricula.getText());
 
-                    estudante.setEmail(txtEmail.getText());
-                    estudante.setSenha(txtPass.getText());
-                    estudante.setNome(txtUser.getText());
-                    estudante.setMatricula(txtNumeroMatricula.getText());
+                        UsuarioDAO estudanteDAO = new UsuarioDAO();
+                        int resultUsuarioDAO = estudanteDAO.cadastrarUsuario(estudante);
 
-                    UsuarioDAO estudanteDAO = new UsuarioDAO();
-                    int resultUsuarioDAO = estudanteDAO.cadastrarUsuario(estudante);
-
-                    if (resultUsuarioDAO != -1) {
-                        Main.setUser(resultUsuarioDAO);
-                        Main main = new Main();
-                        main.show();
-                        ((JFrame) SwingUtilities.getWindowAncestor(painelDeRegistro)).dispose();
+                        if (resultUsuarioDAO != -1) {
+                            Main.setUser(resultUsuarioDAO);
+                            Main main = new Main();
+                            main.show();
+                            ((JFrame) SwingUtilities.getWindowAncestor(painelDeRegistro)).dispose();
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Falha ao registrar. Dados inválidos!", "Falha!", JOptionPane.ERROR_MESSAGE);
+                        }
                     } else {
-                        // tratar error
-                        System.err.println("Usuario inválido!");
+                        JOptionPane.showMessageDialog(null, "Falha ao registrar. Dados inválidos!", "Falha!", JOptionPane.ERROR_MESSAGE);
                     }
-
                 } catch (Exception exception) {
                     System.err.println("Error: " + exception);
                 }
@@ -129,8 +136,7 @@ public class LoginRegistro extends javax.swing.JLayeredPane {
                         main.show();
                         ((JFrame) SwingUtilities.getWindowAncestor(painelDeLogin)).dispose();
                     } else {
-                        // tratar error
-                        System.err.println("Usuario inválido!");
+                        JOptionPane.showMessageDialog(null, "Falha ao fazer Login. Dados inválidos!", "Falha!", JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (Exception exception) {
                     System.err.println("Error: " + exception);

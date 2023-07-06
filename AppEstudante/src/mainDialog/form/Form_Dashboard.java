@@ -1,12 +1,16 @@
 package mainDialog.form;
 
 import mainDialog.card.ModelCard;
+import DAO.UsuarioDAO;
+import DTO.UsuarioDTO;
+import java.util.ArrayList;
 
 public class Form_Dashboard extends javax.swing.JPanel {
 
     public Form_Dashboard() {
         initComponents();
         init();
+        infoEstudante();
     }
 
     private void init() {
@@ -22,7 +26,6 @@ public class Form_Dashboard extends javax.swing.JPanel {
         roundPanel1 = new javaswingdev.swing.RoundPanel();
         textField1 = new textfield.TextField();
         textField2 = new textfield.TextField();
-        textField3 = new textfield.TextField();
         textField4 = new textfield.TextField();
 
         setOpaque(false);
@@ -35,12 +38,13 @@ public class Form_Dashboard extends javax.swing.JPanel {
         roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         roundPanel1.setRound(10);
 
+        textField1.setEditable(false);
         textField1.setLabelText("Nome");
 
+        textField2.setEditable(false);
         textField2.setLabelText("Email");
 
-        textField3.setLabelText("Data de nascimento");
-
+        textField4.setEditable(false);
         textField4.setAutoscrolls(false);
         textField4.setLabelText("Número de matrícula");
 
@@ -49,28 +53,23 @@ public class Form_Dashboard extends javax.swing.JPanel {
         roundPanel1Layout.setHorizontalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(89, 89, 89)
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textField2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(textField4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(100, 100, 100)
+                .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(104, 104, 104)
+                .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106)
+                .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(86, 86, 86)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -81,7 +80,7 @@ public class Form_Dashboard extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(card3, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE))
+                    .addComponent(card3, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE))
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
@@ -91,7 +90,7 @@ public class Form_Dashboard extends javax.swing.JPanel {
                 .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -100,7 +99,16 @@ public class Form_Dashboard extends javax.swing.JPanel {
     private javaswingdev.swing.RoundPanel roundPanel1;
     private textfield.TextField textField1;
     private textfield.TextField textField2;
-    private textfield.TextField textField3;
     private textfield.TextField textField4;
     // End of variables declaration//GEN-END:variables
+
+    public void infoEstudante() {
+        UsuarioDAO estudante = new UsuarioDAO();
+        ArrayList<UsuarioDTO> lista = estudante.infoEstudante();
+        
+        textField1.setText(lista.get(0).getNome());
+        textField2.setText(lista.get(0).getEmail());
+        textField4.setText(lista.get(0).getMatricula());
+    }
 }
+

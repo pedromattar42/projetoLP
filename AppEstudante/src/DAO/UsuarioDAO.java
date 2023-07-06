@@ -14,6 +14,8 @@ import DTO.UsuarioDTO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import mainDialog.main.Main;
 
 public class UsuarioDAO {
     Connection conn;
@@ -62,5 +64,31 @@ public class UsuarioDAO {
             System.err.println("Error (UusarioDAO): " + e);
             return -1;
         }
+    }
+    
+    public ArrayList<UsuarioDTO> infoEstudante(){
+        conn = new ConexaoDAO().contectarDB();
+        ArrayList<UsuarioDTO> lista = new ArrayList<>();
+        
+        try {
+            String sql = "select * from estudantes where id_estudante = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, Main.getUser());
+
+            ResultSet result = pstm.executeQuery();
+            result.next();
+            
+            UsuarioDTO materia = new UsuarioDTO();
+            materia.setNome(result.getString("nome"));
+            materia.setEmail(result.getString("email"));
+            materia.setMatricula(result.getString("matricula"));
+            
+            lista.add(materia);
+
+        } catch (Exception e) {
+            System.err.println("Error (infoEstudante): " + e);
+        }
+
+        return lista;
     }
 }

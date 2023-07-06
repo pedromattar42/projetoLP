@@ -23,7 +23,7 @@
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="roundPanel1" max="32767" attributes="0"/>
-                  <Component id="card3" pref="810" max="32767" attributes="0"/>
+                  <Component id="card3" pref="1064" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
@@ -36,7 +36,7 @@
               <Component id="card3" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="roundPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="260" max="32767" attributes="0"/>
+              <EmptySpace pref="193" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,16 +72,12 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="textField1" alignment="1" min="-2" pref="228" max="-2" attributes="0"/>
-                      <Component id="textField3" alignment="1" min="-2" pref="229" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="textField2" pref="200" max="32767" attributes="0"/>
-                      <Component id="textField4" max="32767" attributes="0"/>
-                  </Group>
+                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="textField1" min="-2" pref="228" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                  <Component id="textField2" min="-2" pref="200" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                  <Component id="textField4" min="-2" pref="200" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -89,17 +85,13 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="textField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textField4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="textField2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="textField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="79" max="32767" attributes="0"/>
+                  <EmptySpace pref="87" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -107,21 +99,19 @@
       <SubComponents>
         <Component class="textfield.TextField" name="textField1">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="labelText" type="java.lang.String" value="Nome"/>
           </Properties>
         </Component>
         <Component class="textfield.TextField" name="textField2">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="labelText" type="java.lang.String" value="Email"/>
-          </Properties>
-        </Component>
-        <Component class="textfield.TextField" name="textField3">
-          <Properties>
-            <Property name="labelText" type="java.lang.String" value="Data de nascimento"/>
           </Properties>
         </Component>
         <Component class="textfield.TextField" name="textField4">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="autoscrolls" type="boolean" value="false"/>
             <Property name="labelText" type="java.lang.String" value="N&#xfa;mero de matr&#xed;cula"/>
           </Properties>

@@ -127,7 +127,6 @@ public class Form_RendimentoDisciplina extends javax.swing.JPanel {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-        // System.out.println(jComboBox1.getSelectedItem());
         MateriaDAO materia = new MateriaDAO();
         jTextArea1.setText("");
         if (jComboBox1.getSelectedItem() != null) {
