@@ -49,9 +49,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="8" max="32767" attributes="0"/>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
                   <Component id="card2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="roundPanel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
@@ -80,19 +80,19 @@
                       <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="textField1" min="-2" pref="318" max="-2" attributes="0"/>
+                              <Component id="nomeInput" min="-2" pref="318" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="textField2" min="-2" pref="295" max="-2" attributes="0"/>
+                              <Component id="nomeProfessorInput" min="-2" pref="295" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="textField3" min="-2" pref="162" max="-2" attributes="0"/>
+                              <Component id="cargaHorariaInput" min="-2" pref="162" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="textField4" min="-2" pref="162" max="-2" attributes="0"/>
+                              <Component id="provasInput" min="-2" pref="162" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButton1" min="-2" pref="103" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="361" max="32767" attributes="0"/>
+                      <EmptySpace pref="106" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -101,13 +101,13 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="textField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeProfessorInput" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="textField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="provasInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cargaHorariaInput" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="49" max="32767" attributes="0"/>
@@ -139,28 +139,25 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="textfield.TextField" name="textField1">
+            <Component class="textfield.TextField" name="nomeInput">
               <Properties>
                 <Property name="labelText" type="java.lang.String" value="Nome"/>
               </Properties>
             </Component>
-            <Component class="textfield.TextField" name="textField2">
+            <Component class="textfield.TextField" name="nomeProfessorInput">
               <Properties>
                 <Property name="labelText" type="java.lang.String" value="Professor (apenas o nome)"/>
               </Properties>
             </Component>
-            <Component class="textfield.TextField" name="textField3">
+            <Component class="textfield.TextField" name="cargaHorariaInput">
               <Properties>
                 <Property name="labelText" type="java.lang.String" value="Carga hor&#xe1;ria"/>
               </Properties>
             </Component>
-            <Component class="textfield.TextField" name="textField4">
+            <Component class="textfield.TextField" name="provasInput">
               <Properties>
                 <Property name="labelText" type="java.lang.String" value="Provas (total)"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textField4ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
