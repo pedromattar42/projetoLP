@@ -79,6 +79,7 @@ public class Main extends javax.swing.JFrame {
         } else if (index == 3 && indexSubMenu == 0) {
             showComponentsAndForm(calendarioForm);
         } else if (index == 4 && indexSubMenu == 0) {
+            rendimentoDisciplinaForm.pegarMaterias();
             showComponentsAndForm(rendimentoDisciplinaForm);
         } else if (index == 5 && indexSubMenu == 0) {
             showComponentsAndForm(rendimentoForm);

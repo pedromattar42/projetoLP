@@ -4,6 +4,11 @@
  */
 package mainDialog.form;
 
+import DAO.MateriaDAO;
+import DTO.MateriaDTO;
+import java.util.ArrayList;
+import mainDialog.main.Main;
+
 /**
  *
  * @author pedro
@@ -32,13 +37,18 @@ public class Form_RendimentoDisciplina extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         card1 = new mainDialog.card.Card();
 
         roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
         roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         roundPanel1.setRound(10);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Disciplina");
 
@@ -48,18 +58,29 @@ public class Form_RendimentoDisciplina extends javax.swing.JPanel {
 
         jLabel2.setText("Informe aqui seu rendimento");
 
+        jButton1.setText("Confirmar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
         roundPanel1Layout.setHorizontalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
-                .addContainerGap(217, Short.MAX_VALUE)
+            .addGroup(roundPanel1Layout.createSequentialGroup()
+                .addGap(217, 217, 217)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(216, 216, 216))
+            .addGroup(roundPanel1Layout.createSequentialGroup()
+                .addGap(411, 411, 411)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,7 +93,9 @@ public class Form_RendimentoDisciplina extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         card1.setColor1(new java.awt.Color(255, 153, 0));
@@ -102,9 +125,31 @@ public class Form_RendimentoDisciplina extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        // System.out.println(jComboBox1.getSelectedItem());
+        MateriaDAO materia = new MateriaDAO();
+        jTextArea1.setText("");
+        if (jComboBox1.getSelectedItem() != null) {
+            String rendimento = materia.pegarRendimento(jComboBox1.getSelectedItem().toString());
+            jTextArea1.append(rendimento);
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            MateriaDAO materia = new MateriaDAO();
+            materia.cadastrarRendimentoSemanal(jTextArea1.getText(), jComboBox1.getSelectedItem().toString());  
+        } catch (Exception e) {
+            System.out.println("Erro (cadastrarRendimentoSemanal): " + e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private mainDialog.card.Card card1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -112,4 +157,22 @@ public class Form_RendimentoDisciplina extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea1;
     private javaswingdev.swing.RoundPanel roundPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public void pegarMaterias() {
+         try {
+            MateriaDAO materia = new MateriaDAO();
+            ArrayList<MateriaDTO> lista = materia.pegarMaterias(Main.getUser());
+            
+            jComboBox1.removeAllItems();
+            
+            for (int num = 0; num < lista.size(); num++) {
+                jComboBox1.addItem(lista.get(num).getNome());
+            }
+        } catch (Exception e) {
+            // tratar erro
+            System.out.println("Error (Listar materias): " + e);
+        }
+    }
 }
+
+

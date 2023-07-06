@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
+import mainDialog.main.Main;
 
 public class MateriaDAO {
     Connection conn;
@@ -67,5 +68,44 @@ public class MateriaDAO {
             System.err.println("Error (MaterialDAO): " + e);
             return false;
         }
+    }
+    
+    public void cadastrarRendimentoSemanal(String rendimento, String nome_materia){
+        conn = new ConexaoDAO().contectarDB();
+        
+        try {
+            String sql = "update materias set rendimento_semanal = ? where nome = ? and id_estudante = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, rendimento);
+            pstm.setString(2, nome_materia);
+            pstm.setInt(3, Main.getUser());
+            
+            pstm.execute();
+            pstm.close();
+        } catch (Exception e) {
+            System.err.println("Error (MaterialDAO): " + e);
+        }
+    }
+    
+    public String pegarRendimento(String nome_materia){
+        conn = new ConexaoDAO().contectarDB();
+        String result = null;
+        
+        try {
+            String sql = "select  *  from materias where nome = ? and id_estudante = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, nome_materia);
+            pstm.setInt(2, Main.getUser());
+
+            ResultSet resultDb = pstm.executeQuery();
+            resultDb.next();
+            System.out.println(resultDb.getString("rendimento_semanal"));
+            result = resultDb.getString("rendimento_semanal");
+            
+        } catch (Exception e) {
+            System.err.println("Error (MaterialDAO): " + e);
+        }
+        
+        return result;
     }
 }

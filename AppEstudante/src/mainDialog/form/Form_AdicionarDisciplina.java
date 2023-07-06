@@ -170,29 +170,7 @@ public class Form_AdicionarDisciplina extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:        
-        try {
-            MateriaDTO materia = new MateriaDTO();
-
-            materia.setNome(textField1.getText());
-            materia.setProfessor(textField2.getText());
-            materia.setCarga_horaria(Integer.parseInt(textField3.getText()));
-            materia.setQnt_provas(Integer.parseInt(textField4.getText()));
-            materia.setId_estudante(Main.getUser());
-
-            MateriaDAO materiaDAO = new MateriaDAO();
-            boolean resultMateriaDAO = materiaDAO.cadastrarMateria(materia);
-
-            // tratar
-            if (resultMateriaDAO) {
-                System.out.println("Materia criada com sucesso!");
-                listarMaterias();
-            } else {
-                System.err.println("Materia falhou para criar!");
-            }
-        } catch (Exception exception) {
-            System.err.println("Error: " + exception);
-        }
-        
+        addMateria();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -228,6 +206,31 @@ public class Form_AdicionarDisciplina extends javax.swing.JPanel {
         } catch (Exception e) {
             // tratar erro
             System.out.println("Error (Listar materias)");
+        }
+    }
+    
+    private void addMateria() {
+         try {
+            MateriaDTO materia = new MateriaDTO();
+
+            materia.setNome(textField1.getText());
+            materia.setProfessor(textField2.getText());
+            materia.setCarga_horaria(Integer.parseInt(textField3.getText()));
+            materia.setQnt_provas(Integer.parseInt(textField4.getText()));
+            materia.setId_estudante(Main.getUser());
+
+            MateriaDAO materiaDAO = new MateriaDAO();
+            boolean resultMateriaDAO = materiaDAO.cadastrarMateria(materia);
+
+            // tratar
+            if (resultMateriaDAO) {
+                System.out.println("Materia criada com sucesso!");
+                listarMaterias();
+            } else {
+                System.err.println("Materia falhou para criar!");
+            }
+        } catch (Exception exception) {
+            System.err.println("Error: " + exception);
         }
     }
 }

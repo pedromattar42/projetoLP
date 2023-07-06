@@ -46,7 +46,6 @@ public class Menu extends JPanel {
         addMenuTitle("OUTROS");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.BOOK, "ENEM", "Vídeos", "Materiais"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.TIMER, "Pomodoro"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.LOCK_OUTLINE, "Autenticação", "Trocar senha"));
     }
 
     private JScrollPane createScrollPane() {
