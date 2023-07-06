@@ -25,15 +25,15 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
 
         card1 = new mainDialog.card.Card();
         roundPanel1 = new javaswingdev.swing.RoundPanel();
-        jLabel5 = new javax.swing.JLabel();
+        tituloRedacoes = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        redacoesPdfs = new javax.swing.JList<>();
+        redacoesLista = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        apostilas = new javax.swing.JList<>();
-        jLabel1 = new javax.swing.JLabel();
+        apostilasLista = new javax.swing.JList<>();
+        tituloApostilas = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        principaisAssuntos = new javax.swing.JList<>();
-        jLabel2 = new javax.swing.JLabel();
+        principaisAssuntosLista = new javax.swing.JList<>();
+        tituloPrincipaisAssuntos = new javax.swing.JLabel();
 
         card1.setDescription("Nessa aba você terá acesso a materiais que irão te auxiliar em sua jornada de estudos para o enem.");
         card1.setIcon(javaswingdev.GoogleMaterialDesignIcon.NOTE_ADD);
@@ -43,55 +43,55 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
         roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         roundPanel1.setRound(10);
 
-        jLabel5.setText("REDAÇÕES");
+        tituloRedacoes.setText("REDAÇÕES");
 
-        redacoesPdfs.setModel(new javax.swing.AbstractListModel<String>() {
+        redacoesLista.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Cartilha de redações", "Repertórios", "Situações nota zero", "Competências", " " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        redacoesPdfs.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        redacoesPdfs.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        redacoesLista.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        redacoesLista.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                redacoesPdfsValueChanged(evt);
+                redacoesListaValueChanged(evt);
             }
         });
-        jScrollPane1.setViewportView(redacoesPdfs);
+        jScrollPane1.setViewportView(redacoesLista);
 
-        apostilas.setModel(new javax.swing.AbstractListModel<String>() {
+        apostilasLista.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Ciências da Natureza", "Ciências Humanas", "Linguagens", "Matemática", " " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        apostilas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        apostilas.addMouseListener(new java.awt.event.MouseAdapter() {
+        apostilasLista.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        apostilasLista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                apostilasMouseClicked(evt);
+                apostilasListaMouseClicked(evt);
             }
         });
-        apostilas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        apostilasLista.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                apostilasValueChanged(evt);
+                apostilasListaValueChanged(evt);
             }
         });
-        jScrollPane2.setViewportView(apostilas);
+        jScrollPane2.setViewportView(apostilasLista);
 
-        jLabel1.setText("APOSTILAS");
+        tituloApostilas.setText("APOSTILAS");
 
-        principaisAssuntos.setModel(new javax.swing.AbstractListModel<String>() {
+        principaisAssuntosLista.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Assuntos mais recorrentes nos últimos anos", " " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        principaisAssuntos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        principaisAssuntos.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        principaisAssuntosLista.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        principaisAssuntosLista.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                principaisAssuntosValueChanged(evt);
+                principaisAssuntosListaValueChanged(evt);
             }
         });
-        jScrollPane3.setViewportView(principaisAssuntos);
+        jScrollPane3.setViewportView(principaisAssuntosLista);
 
-        jLabel2.setText("PRINCIPAIS ASSUNTOS");
+        tituloPrincipaisAssuntos.setText("PRINCIPAIS ASSUNTOS");
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
         roundPanel1.setLayout(roundPanel1Layout);
@@ -107,11 +107,11 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addGap(128, 128, 128)
-                .addComponent(jLabel5)
+                .addComponent(tituloRedacoes)
                 .addGap(276, 276, 276)
-                .addComponent(jLabel1)
+                .addComponent(tituloApostilas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(tituloPrincipaisAssuntos)
                 .addGap(111, 111, 111))
         );
         roundPanel1Layout.setVerticalGroup(
@@ -119,10 +119,10 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tituloApostilas, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel2)))
+                        .addComponent(tituloRedacoes)
+                        .addComponent(tituloPrincipaisAssuntos)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
@@ -153,7 +153,7 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void redacoesPdfsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_redacoesPdfsValueChanged
+    private void redacoesListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_redacoesListaValueChanged
         if (!evt.getValueIsAdjusting()) {
             JList<String> source = (JList<String>) evt.getSource();
             int selectedIndex = source.getSelectedIndex();
@@ -175,9 +175,9 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
                     throw new AssertionError();
             }
         }
-    }//GEN-LAST:event_redacoesPdfsValueChanged
+    }//GEN-LAST:event_redacoesListaValueChanged
 
-    private void apostilasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_apostilasValueChanged
+    private void apostilasListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_apostilasListaValueChanged
         if (!evt.getValueIsAdjusting()) {
             JList<String> source = (JList<String>) evt.getSource();
             int selectedIndex = source.getSelectedIndex();
@@ -198,9 +198,9 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
                     default:
                         throw new AssertionError();
                 }
-         }    }//GEN-LAST:event_apostilasValueChanged
+         }    }//GEN-LAST:event_apostilasListaValueChanged
 
-    private void principaisAssuntosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_principaisAssuntosValueChanged
+    private void principaisAssuntosListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_principaisAssuntosListaValueChanged
         if (!evt.getValueIsAdjusting()) {
             JList<String> source = (JList<String>) evt.getSource();
             int selectedIndex = source.getSelectedIndex();
@@ -213,11 +213,11 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
                     throw new AssertionError();
             }
         }
-    }//GEN-LAST:event_principaisAssuntosValueChanged
+    }//GEN-LAST:event_principaisAssuntosListaValueChanged
 
-    private void apostilasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apostilasMouseClicked
+    private void apostilasListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apostilasListaMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_apostilasMouseClicked
+    }//GEN-LAST:event_apostilasListaMouseClicked
 
     private void downloadAndShowDialog(String filename, String successMessage, String failureMessage) {
         JFileChooser fileChooser = new JFileChooser();
@@ -264,16 +264,16 @@ public class Form_Enem_Materiais extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> apostilas;
+    private javax.swing.JList<String> apostilasLista;
     private mainDialog.card.Card card1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JList<String> principaisAssuntos;
-    private javax.swing.JList<String> redacoesPdfs;
+    private javax.swing.JList<String> principaisAssuntosLista;
+    private javax.swing.JList<String> redacoesLista;
     private javaswingdev.swing.RoundPanel roundPanel1;
+    private javax.swing.JLabel tituloApostilas;
+    private javax.swing.JLabel tituloPrincipaisAssuntos;
+    private javax.swing.JLabel tituloRedacoes;
     // End of variables declaration//GEN-END:variables
 }

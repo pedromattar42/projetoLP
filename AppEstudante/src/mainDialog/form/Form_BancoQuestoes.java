@@ -26,15 +26,15 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
 
         card1 = new mainDialog.card.Card();
         roundPanel1 = new javaswingdev.swing.RoundPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        enemPplProvas = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        dezMilQuestoesLabel = new javax.swing.JLabel();
+        enemLabel = new javax.swing.JLabel();
+        enemPplLabel = new javax.swing.JLabel();
+        exerciciosPorDisciplinaLabel = new javax.swing.JLabel();
         milQuestoesBotao = new javax.swing.JButton();
         enemPplBotao = new javax.swing.JButton();
         provasEnem = new javax.swing.JButton();
         exerciciosSeparadosPorDisciplinaBotao = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        questoesMatematicaLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         card1.setColor1(new java.awt.Color(153, 153, 153));
@@ -47,14 +47,14 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
         roundPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         roundPanel1.setRound(10);
 
-        jLabel1.setText("+10.000 QUESTÕES");
-        jLabel1.setToolTipText("");
+        dezMilQuestoesLabel.setText("+10.000 QUESTÕES");
+        dezMilQuestoesLabel.setToolTipText("");
 
-        jLabel2.setText("PROVAS ENEM 2008-2019");
+        enemLabel.setText("PROVAS ENEM 2008-2019");
 
-        enemPplProvas.setText("PROVAS ENEM PPL 2009-2016");
+        enemPplLabel.setText("PROVAS ENEM PPL 2009-2016");
 
-        jLabel5.setText("EXERCÍCIOS SEPARADOS POR DISCIPLINA");
+        exerciciosPorDisciplinaLabel.setText("EXERCÍCIOS SEPARADOS POR DISCIPLINA");
 
         milQuestoesBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/baixar-pdf.png"))); // NOI18N
         milQuestoesBotao.setText("BAIXAR");
@@ -98,7 +98,7 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("QUESTÕES MATEMÁTICA");
+        questoesMatematicaLabel.setText("QUESTÕES MATEMÁTICA");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/baixar-pdf.png"))); // NOI18N
         jButton1.setText("BAIXAR");
@@ -116,24 +116,24 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addGap(333, 333, 333)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(questoesMatematicaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
                         .addComponent(jButton1))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addGap(304, 304, 304)
-                        .addComponent(jLabel5)
+                        .addComponent(exerciciosPorDisciplinaLabel)
                         .addGap(18, 18, 18)
                         .addComponent(exerciciosSeparadosPorDisciplinaBotao))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addGap(363, 363, 363)
-                        .addComponent(jLabel1)
+                        .addComponent(dezMilQuestoesLabel)
                         .addGap(18, 18, 18)
                         .addComponent(milQuestoesBotao))
                     .addGroup(roundPanel1Layout.createSequentialGroup()
                         .addGap(329, 329, 329)
                         .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(enemPplProvas, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(enemPplLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(enemLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(enemPplBotao)
@@ -145,23 +145,23 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dezMilQuestoesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(milQuestoesBotao))
                 .addGap(25, 25, 25)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enemPplProvas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enemPplLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enemPplBotao))
                 .addGap(18, 18, 18)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(enemLabel)
                     .addComponent(provasEnem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(exerciciosPorDisciplinaLabel)
                     .addComponent(exerciciosSeparadosPorDisciplinaBotao))
                 .addGap(18, 18, 18)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(questoesMatematicaLabel)
                     .addComponent(jButton1))
                 .addContainerGap(140, Short.MAX_VALUE))
         );
@@ -264,16 +264,16 @@ public class Form_BancoQuestoes extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private mainDialog.card.Card card1;
+    private javax.swing.JLabel dezMilQuestoesLabel;
+    private javax.swing.JLabel enemLabel;
     private javax.swing.JButton enemPplBotao;
-    private javax.swing.JLabel enemPplProvas;
+    private javax.swing.JLabel enemPplLabel;
+    private javax.swing.JLabel exerciciosPorDisciplinaLabel;
     private javax.swing.JButton exerciciosSeparadosPorDisciplinaBotao;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton milQuestoesBotao;
     private javax.swing.JButton provasEnem;
+    private javax.swing.JLabel questoesMatematicaLabel;
     private javaswingdev.swing.RoundPanel roundPanel1;
     // End of variables declaration//GEN-END:variables
 }
